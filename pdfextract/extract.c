@@ -29,7 +29,7 @@ int main(int argc, char const* argv[]){
 	}
 	fclose(fi);
 	if (!(fi=fopen(argv[2],"r"))){
-		printf("Errpr: Cannot open csv file.\n");
+		printf("Error: Cannot open csv file.\n");
 		return 0;
 	}
 
