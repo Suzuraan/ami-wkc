@@ -6,7 +6,7 @@
 int main(int argc, char const* argv[]){
 	FILE *fi;
 	char buf[1000],fname[100],*s,tmp[1000];
-	int start,end,i;
+	int start,end,i,offset;
 
 	if (argc<2){
 		printf("Usage: %s filename list [page_offset]\n",argv[0]);
@@ -33,6 +33,10 @@ int main(int argc, char const* argv[]){
 		return 0;
 	}
 
+	if (argc==3) sscanf(argv[3],"%d",&offset);
+	else offset=0;
+	
+
 	fgets(buf,1000,fi);
 	while (!feof(fi)){
 		if (!fgets(buf,1000,fi)) break;
@@ -44,7 +48,7 @@ int main(int argc, char const* argv[]){
 		sscanf(s,"%d",&end);
 		strcpy(tmp,argv[1]);
 		tmp[strlen(tmp)-4]='\0';
-		sprintf(buf,"pdftk.exe \"%s\" cat %d-%d output \"%s, %s.pdf\"",argv[1],start,end,tmp,fname);
+		sprintf(buf,"pdftk.exe \"%s\" cat %d-%d output \"%s, %s.pdf\"",argv[1],start+offset,end+offset,tmp,fname);
 		printf("Extracting: %s\n",fname);
 		//printf("%s\n",buf);
 		system(buf);
