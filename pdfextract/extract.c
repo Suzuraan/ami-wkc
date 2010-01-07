@@ -33,7 +33,7 @@ int main(int argc, char const* argv[]){
 		return 0;
 	}
 
-	if (argc==3) sscanf(argv[3],"%d",&offset);
+	if (argc==4) sscanf(argv[3],"%d",&offset);
 	else offset=0;
 	
 
