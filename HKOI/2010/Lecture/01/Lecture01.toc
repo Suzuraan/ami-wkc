@@ -1,0 +1,12 @@
+\pdcontentsline{1}{2}{Introduction}
+\pdcontentsline{0}{3}{Problem solving - Maths}
+\pdcontentsline{0}{4}{Pythagoras theorem}
+\pdcontentsline{0}{10}{Remainder/Modulus}
+\pdcontentsline{0}{11}{Problem solving - Computer}
+\pdcontentsline{0}{12}{PCIMC-09-H5-Q16}
+\pdcontentsline{1}{14}{Programming in C}
+\pdcontentsline{0}{15}{What can a computer do?}
+\pdcontentsline{0}{16}{Linguistic matter of human language}
+\pdcontentsline{0}{17}{Programming Language - Computer's language}
+\pdcontentsline{0}{18}{C Syntax - Arithmetic}
+\pdcontentsline{1}{19}{End}

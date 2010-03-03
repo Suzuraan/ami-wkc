@@ -1,0 +1,741 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\usepackage{pictex}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 5pheight%
+\rightmargin 2cm
+\bottommargin 4pheight%
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Week 1 Exercise
+\end_layout
+
+\begin_layout Section
+Another proof of pythagoras theorem and Pythagorean mean
+\end_layout
+
+\begin_layout Problem
+In the following diagram, 
+\begin_inset Formula $AD=a,DB=b$
+\end_inset
+
+ and 
+\begin_inset Formula $CD=h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q1.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Show that 
+\begin_inset Formula $\triangle ACD\sim\triangle CDB$
+\end_inset
+
+ and 
+\begin_inset Formula $h=\sqrt{ab}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula $\sqrt{ab}$
+\end_inset
+
+ is called the 
+\family default
+\series default
+\shape default
+\size default
+\emph on
+\bar default
+\noun default
+\color inherit
+geometric mean (GM)
+\emph default
+ of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Formula $\frac{a+b}{2}$
+\end_inset
+
+ is called the 
+\emph on
+arithemetic mean (AM)
+\emph default
+ of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+In the following diagram, 
+\begin_inset Formula $AB$
+\end_inset
+
+ is the diameter, 
+\begin_inset Formula $C$
+\end_inset
+
+ is a point on the semi-circle and 
+\begin_inset Formula $O$
+\end_inset
+
+ is the center.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q2.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Show that 
+\begin_inset Formula $\angle ACB=90^{\circ}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+Point 
+\begin_inset Formula $D$
+\end_inset
+
+ is the foot of the perpendicular from 
+\begin_inset Formula $C$
+\end_inset
+
+ to 
+\begin_inset Formula $AB$
+\end_inset
+
+ and 
+\begin_inset Formula $AD=a$
+\end_inset
+
+ and 
+\begin_inset Formula $DB=b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q3.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+From the previous question, we have 
+\begin_inset Formula $\angle ACB=90^{\circ}$
+\end_inset
+
+ and hence 
+\begin_inset Formula $DC=\sqrt{ab}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Find 
+\begin_inset Formula $OC$
+\end_inset
+
+ and 
+\begin_inset Formula $OD$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Prove the pythagoras theorem by considering 
+\begin_inset Formula $\triangle ODC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+This shows that pythagoras theorem is true for every right triangle with
+ sides 
+\begin_inset Formula $\left(\mbox{\sqrt{ab},\ensuremath{\frac{b-a}{2}},\frac{a+b}{2}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+Construction of Pythagorean mean
+\end_layout
+
+\end_inset
+
+ In the diagram below, 
+\begin_inset Formula $AD=a$
+\end_inset
+
+ and 
+\begin_inset Formula $DB=b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $G$
+\end_inset
+
+ is the intersection of the the perpendicular bisector of 
+\begin_inset Formula $AB$
+\end_inset
+
+ and the semi-circle.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q4.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+In previous exercise, we show the constructon of arithmetic mean and geometric
+ mean of two line segments.
+\end_layout
+
+\begin_layout Problem
+Here, we are going to construct the 
+\emph on
+harmonic mean (HM)
+\emph default
+,
+\emph on
+ 
+\emph default
+
+\begin_inset Formula $\dfrac{2}{\frac{1}{a}+\frac{1}{b}}$
+\end_inset
+
+, of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+Finally, we construct the 
+\emph on
+quadratic mean (QM)
+\emph default
+, 
+\begin_inset Formula $\sqrt{\frac{a^{2}+b^{2}}{2}}$
+\end_inset
+
+, of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Show that 
+\begin_inset Formula $\triangle CDO\sim\triangle CED$
+\end_inset
+
+ and 
+\begin_inset Formula ${\displaystyle CE=\frac{2ab}{a+b}=\frac{2}{\frac{1}{a}+\frac{1}{b}}}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Enumerate
+Draw the line segment 
+\begin_inset Formula $DG$
+\end_inset
+
+ and show that 
+\begin_inset Formula $DG=\sqrt{\frac{a^{2}+b^{2}}{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem*
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+Mean inequality
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $a,b$
+\end_inset
+
+ be any positive real numbers, then
+\end_layout
+
+\begin_layout Theorem*
+\begin_inset Formula \[
+{\displaystyle \dfrac{2}{\frac{1}{a}+\frac{1}{b}}\leq\sqrt{ab}\leq\frac{a+b}{2}\leq\mbox{\sqrt{\frac{a^{2}+b^{2}}{2}}}}\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem*
+The equality holds if and only if 
+\begin_inset Formula $a=b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+With refer to the diagram, the harmonic mean of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ is the segment 
+\begin_inset Formula $CE$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+It is less than the hypotenuse of the triangle 
+\begin_inset Formula $\triangle CDE$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $CE\leq DC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $DC$
+\end_inset
+
+ is the geometric mean, hence we showed 
+\begin_inset Formula $HM\leq GM$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $DC$
+\end_inset
+
+ is perpendicular to the diameter, it is less then the radius 
+\begin_inset Formula $OG$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $OG=OA=OB$
+\end_inset
+
+ hence it is the arithmetic mean.
+\end_layout
+
+\begin_layout Proof
+This shows 
+\begin_inset Formula $GM\leq AM$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Finally, a similar argument on the triangle 
+\begin_inset Formula $\triangle ODG$
+\end_inset
+
+ shows that 
+\begin_inset Formula $AM\leq QM$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This complete the proof of the mean inequality, 
+\begin_inset Formula $HM\leq GM\leq AM\leq QM$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $a=b$
+\end_inset
+
+, the above four are equal to 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Conversely, if all of them are equal, one can show that 
+\begin_inset Formula $a=b$
+\end_inset
+
+ algebraically.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\paragraph_spacing double
+C's Syntax
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+Rewrite the following mathematical expression in C's expression.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+
+\emph on
+Don't not simplify any one of them.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+You can assume that 
+\begin_inset Formula $\sqrt{x}$
+\end_inset
+
+ is written in 
+\begin_inset Formula $sqrt\left(x\right)$
+\end_inset
+
+ in C.
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $x^{3}+y^{3}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\left(x+y\right)^{2}\left(x-y\right)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\sqrt{\left(x-y\right)^{2}}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula $\left(\sqrt{x-y}\right)^{2}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $a^{2}+2ab+b^{2}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\dfrac{x^{3}+y^{3}}{x+y}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $x^{2}-xy+y^{2}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\left(\dfrac{x^{3}+y^{3}}{x+y}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Be careful, computer is so stupid.
+ 
+\end_layout
+
+\begin_layout Remark*
+It cannot understand simplified notation.
+\end_layout
+
+\begin_layout Remark*
+For example, we may write 
+\begin_inset Formula $2xy$
+\end_inset
+
+ usually to stand for the product of 
+\begin_inset Formula $2,x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+In this case, you have to write 
+\begin_inset Formula $2*x*y$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,74 @@
+\begin{tikzpicture}
+\clip (0,0) rectangle (7.000000,6.500000);
+{\footnotesize
+
+% Drawing segment A B
+\draw [line width=0.016cm] (1.000000,0.500000) -- (4.000000,0.500000);%
+
+% Drawing segment A C
+\draw [line width=0.016cm] (1.000000,0.500000) -- (1.000000,2.500000);%
+
+% Drawing segment B C
+\draw [line width=0.016cm] (4.000000,0.500000) -- (1.000000,2.500000);%
+
+% Marking point A
+\draw (1.000000,0.500000) node [anchor=east] { $A$ };%
+
+% Marking point B
+\draw (4.000000,0.500000) node [anchor=north] { $B$ };%
+
+% Marking point C
+\draw (1.000000,2.500000) node [anchor=east] { $C$ };%
+
+% Drawing segment A' B'
+\draw [line width=0.016cm] (1.000000,5.500000) -- (3.000000,5.500000);%
+
+% Drawing segment A' C
+\draw [line width=0.016cm] (1.000000,5.500000) -- (1.000000,2.500000);%
+
+% Drawing segment B' C
+\draw [line width=0.016cm] (3.000000,5.500000) -- (1.000000,2.500000);%
+
+% Marking point A'
+\draw (1.000000,5.500000) node [anchor=south east] { $A'$ };%
+
+% Marking point B'
+\draw (3.000000,5.500000) node [anchor=south] { $B'$ };%
+
+% Drawing segment A'' B
+\draw [line width=0.016cm] (6.000000,0.500000) -- (4.000000,0.500000);%
+
+% Drawing segment A'' C'
+\draw [line width=0.016cm] (6.000000,0.500000) -- (6.000000,3.500000);%
+
+% Drawing segment B C'
+\draw [line width=0.016cm] (4.000000,0.500000) -- (6.000000,3.500000);%
+
+% Marking point A''
+\draw (6.000000,0.500000) node [anchor=west] { $A''$ };%
+
+% Marking point C'
+\draw (6.000000,3.500000) node [anchor=west] { $C'$ };%
+
+% Drawing segment A''' B'
+\draw [line width=0.016cm] (6.000000,5.500000) -- (3.000000,5.500000);%
+
+% Drawing segment A''' C'
+\draw [line width=0.016cm] (6.000000,5.500000) -- (6.000000,3.500000);%
+
+% Drawing segment B' C'
+\draw [line width=0.016cm] (3.000000,5.500000) -- (6.000000,3.500000);%
+
+% Marking point A'''
+\draw (6.000000,5.500000) node [anchor=south west] { $A'''$ };%
+
+% Printing text at point M_1
+\draw (2.500000,0.500000) node [anchor=north] { $a$ };%
+
+% Printing text at point M_2
+\draw (1.000000,1.500000) node [anchor=east] { $b$ };%
+
+% Printing text at point M_3
+\draw (2.470000,1.470000) node [anchor=south west] { $c$ };%
+}
+\end{tikzpicture}

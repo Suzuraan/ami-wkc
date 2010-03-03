@@ -1,0 +1,446 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass powerdot
+\options style=fyma,display=slidesnotes
+\use_default_options false
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize size=10
+\spacing onehalf
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation landscape
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+HKOI Training
+\end_layout
+
+\begin_layout Author
+\begin_inset Formula $ami\sim wkc$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+Last modified: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Course information
+\end_layout
+
+\begin_layout Slide
+My contact
+\end_layout
+
+\begin_layout Standard
+Name : Wu, Kai Chiu
+\end_layout
+
+\begin_layout Standard
+email / facebk : ami@mathdb.org
+\end_layout
+
+\begin_layout Standard
+Other information : in my facebook
+\end_layout
+
+\begin_layout Slide
+Course Schedule
+\end_layout
+
+\begin_layout Standard
+Course webpage : 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://hkoi.mathdb.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Previous training material: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://game.integate.net/hkoi/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Almost every Saturaday, from 
+\begin_inset Formula $10am$
+\end_inset
+
+ to 
+\begin_inset Formula $12pm$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Location: Computer Room 10 of Methodist College
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dates: 
+\end_layout
+
+\begin_layout Standard
+27-Feb, 6-Mar, 13-Mar, 27-Mar
+\end_layout
+
+\begin_layout Standard
+10-Apr, 17-Apr, 24-Apr
+\end_layout
+
+\begin_layout Standard
+8-May, 15-May, 22-May, 29-May
+\end_layout
+
+\begin_layout Standard
+5-Jun, 26-Jun
+\end_layout
+
+\begin_layout Standard
+3-Jul (Examination)
+\end_layout
+
+\begin_layout Standard
+No lesson on 20-Mar, as I will be at PuiChing Middle School.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You are required to sumbit homework 
+\emph on
+at the beginning
+\emph default
+ of the lessons.
+\end_layout
+
+\begin_layout Standard
+There will be around three quizzes and one examination.
+\end_layout
+
+\begin_layout Standard
+Homework problems are related to all you learnt in school.
+\end_layout
+
+\begin_layout Slide
+Topics
+\end_layout
+
+\begin_layout Itemize
+Discrete Mathematics
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Propositional logic
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+onslide*{1}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Statements - negation, conjunction, disjunction and condition
+\end_layout
+
+\begin_layout Enumerate
+Truth values - TRUE , FALSE
+\end_layout
+
+\begin_layout Enumerate
+Boolean algebra
+\end_layout
+
+\begin_layout Enumerate
+Recursive definition
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Mathematical induction
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+onslide*{2}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+well-ordering principle
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Set theory, relations and functions
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+onslide*{3}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+equivalence relation and classes
+\end_layout
+
+\begin_layout Enumerate
+domain, codomain and image
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Number theory
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+onslide*{4}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Divisibility
+\end_layout
+
+\begin_layout Enumerate
+Disivion algorithm and Euclidean algorithm
+\end_layout
+
+\begin_layout Enumerate
+Modular arithmetic - Addition, subtraction, multiplcation and inverse.
+\end_layout
+
+\begin_layout Enumerate
+The congruence classes modulo 
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Abstract algebra
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+onslide*{5}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Units of 
+\begin_inset Formula $\mathbb{Z}_{p}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fermat's little theorem
+\end_layout
+
+\begin_layout Enumerate
+Euler's phi-function
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout EndSlide
+
+\end_layout
+
+\end_body
+\end_document

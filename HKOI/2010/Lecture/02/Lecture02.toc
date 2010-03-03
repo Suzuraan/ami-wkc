@@ -1,0 +1,4 @@
+\pdcontentsline{1}{2}{Lecture 02}
+\pdcontentsline{1}{3}{Propositional Logic}
+\pdcontentsline{0}{4}{Proposition / Statement}
+\pdcontentsline{1}{7}{End}

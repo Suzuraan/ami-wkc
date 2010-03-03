@@ -1,0 +1,6 @@
+\pdcontentsline{1}{2}{Course information}
+\pdcontentsline{0}{3}{My contact}
+\pdcontentsline{0}{4}{Course Schedule}
+\pdcontentsline{0}{5}{Topics - Math}
+\pdcontentsline{0}{6}{Topics - Programming}
+\pdcontentsline{0}{7}{Reference}

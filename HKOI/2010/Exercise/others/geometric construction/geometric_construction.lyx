@@ -1,0 +1,382 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+theorems-sec
+\end_modules
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 5pheight%
+\rightmargin 2cm
+\bottommargin 4pheight%
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Geometric Construction
+\end_layout
+
+\begin_layout Standard
+You can only used compass and straightedge which has no measure
+\end_layout
+
+\begin_layout Subsection*
+Basic construction of lines
+\end_layout
+
+\begin_layout Problem
+You are given a line segment with end points 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+, draw a line bisecting 
+\begin_inset Formula $AB$
+\end_inset
+
+ and perpendicular to 
+\begin_inset Formula $AB$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+This line is called the 
+\emph on
+perpendicular bisector
+\emph default
+ of 
+\begin_inset Formula $AB$
+\end_inset
+
+, and the point these two lines meet is called the 
+\emph on
+midpoint
+\emph default
+ of 
+\begin_inset Formula $AB$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+You are given an angle 
+\begin_inset Formula $\angle ABC$
+\end_inset
+
+, find a point 
+\begin_inset Formula $X$
+\end_inset
+
+ in the interior of 
+\begin_inset Formula $\angle ABC$
+\end_inset
+
+ such that 
+\begin_inset Formula $\angle ABX=\angle CBX$
+\end_inset
+
+ and draw the line 
+\begin_inset Formula $BX$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+The line 
+\begin_inset Formula $BX$
+\end_inset
+
+ is called the 
+\emph on
+angle bisector
+\emph default
+ of 
+\begin_inset Formula $\angle ABC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection*
+The four special points of triangle
+\end_layout
+
+\begin_layout Standard
+In this part, you are given a triangle 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will consider the intersection of the following two kind of lines, the
+ medians and the altitudes.
+\end_layout
+
+\begin_layout Standard
+It turns out that every lines of the same kinds will meet at a unique point.
+\end_layout
+
+\begin_layout Definition*
+Let 
+\begin_inset Formula $M_{AB}$
+\end_inset
+
+ be the midpoint of 
+\begin_inset Formula $AB$
+\end_inset
+
+, draw the line passing through 
+\begin_inset Formula $M_{AB}$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition*
+Simlarly, draw the others two lines.
+\end_layout
+
+\begin_layout Definition*
+These three lines are called the 
+\emph on
+median
+\emph default
+ of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition*
+Draw a line passing through 
+\begin_inset Formula $A$
+\end_inset
+
+ and perpendicular to 
+\begin_inset Formula $BC$
+\end_inset
+
+, similar the other two lines.
+\end_layout
+
+\begin_layout Definition*
+These three lines are called the 
+\emph on
+altitude
+\emph default
+ of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem*
+The three medians of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ are concurrent.
+\end_layout
+
+\begin_layout Theorem*
+The three altitudes of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ are concurrent.
+\end_layout
+
+\begin_layout Theorem*
+The three perpendicular bisectors of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ are concurrent.
+\end_layout
+
+\begin_layout Theorem*
+The three angle bisectors of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ are concurrent.
+\end_layout
+
+\begin_layout Definition*
+The point that the three medians meet is called the 
+\emph on
+centroid
+\emph default
+ of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition*
+The point that the three altitudes meet is called the 
+\emph on
+orthocenter
+\emph default
+ of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+Locate the center of the circle passing through the points 
+\begin_inset Formula $A,B$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+, and draw the circle.
+\end_layout
+
+\begin_layout Problem
+The circle is called the 
+\emph on
+circumcircle
+\emph default
+ of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+, and the center is called the 
+\emph on
+circumcenter
+\emph default
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+Locate the center of the circle which touches each side of the triangle,
+ and draw the circle.
+\end_layout
+
+\begin_layout Problem
+The circle is called the 
+\emph on
+incircle
+\emph default
+ of 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+, and the center is called the 
+\emph on
+incenter
+\emph default
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be the orthocenter of the triangle, 
+\begin_inset Formula $\angle BAC=x^{\circ}$
+\end_inset
+
+ , find 
+\begin_inset Formula $\angle BGC$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,39 @@
+dim 80 80
+point A 10 5
+point B 40 5
+point C 10 25
+drawsegment A B
+drawsegment A C
+drawsegment B C
+mark_l A
+mark_b B
+mark_l C
+
+point A' 10 55 
+point B' 30 55
+drawsegment A' B'
+drawsegment A' C
+drawsegment B' C
+mark_lt A'
+mark_t B'
+
+point A'' 60 5
+point C' 60 35
+drawsegment A'' B
+drawsegment A'' C'
+drawsegment B C'
+mark_r A''
+mark_r C'
+
+point A''' 60 55
+drawsegment A''' B'
+drawsegment A''' C'
+drawsegment B' C'
+mark_rt A'''
+
+midpoint M_1 A B
+midpoint M_2 A C
+midpoint M_3 B C
+printat_b M_1 {a}
+printat_l M_2 {b}
+printat_rt M_3 {c}

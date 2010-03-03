@@ -1,0 +1,345 @@
+%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[size=8pt,english,style=fyma,display=slidesnotes,mode=present,paper=screen]{powerdot}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphics}
+\onehalfspacing
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+	\theoremstyle{plain}
+	\newtheorem*{thm*}{Theorem}
+	\newtheorem{thm}{Theorem}	
+	\newtheorem*{def*}{Definition}
+\makeatother
+
+\usepackage{babel}
+
+\begin{document}
+	
+\title{HKOI Training}
+\author{$ami\sim wkc$}
+\date{Last modified: \today}
+\maketitle
+\lyxend\section[toc=Introduction]{Lecture 01 \\ An introduction to problem solving and programming in C}
+
+\begin{slide}{Problem solving - Maths}
+	\begin{itemize}
+		\item	Understand the problem \pause
+		\item	Discover new properties, lemmas, theorems etc.	\pause
+		\item	Understanding what it is \pause
+		\item	Understanding how to use \pause
+		\item	Understanding why it is true \pause
+	\end{itemize}	
+
+\end{slide}
+\begin{slide}[toc=Pythagoras theorem]{Example - Pythagoras theorem}
+	\input{pic/pyth.tkz}
+	
+	Find $BC$ if $BC$ is an integer.
+	
+	Find positive integer solutions to the equation $a^2+b^2=c^2$.
+	
+	Is there any relation between the above two problems?	
+\end{slide}
+\begin{slide}[toc=]{}
+	\begin{thm*}[Pythagoras]
+		If $a^2+b^2=c^2$, there is a right triangle with sides $a$,$b$,$c$.
+		
+		For each right triangle, sum of square of legs is equal to square of the hypotenuse.		
+	\end{thm*}
+	In particular, if a right triangle has integer sides, the sides are a solution to the equation.
+\end{slide}
+\begin{slide}[toc=]{Example - Pythagoras theorem (Cont'd)}
+	What is the Pythagoras theorem?\pause
+		\begin{itemize}
+			\item It relates the sides of a right triangle.
+			\item It relates each solution with a right triangle.
+		\end{itemize}\pause
+	How can you use it to find $BC$?\pause
+	
+	The theorem said, $\left(3,4,BC\right)$ is one of the solutions.
+	
+	There are a few possibilities:\pause
+		\begin{enumerate}
+			\item $b=3, c=4$ and $a = BC$
+			\item $b=4, c=3$ and $a = BC$
+			\item $a=3, c=4$ and $b = BC$
+			\item $a=4, c=3$ and $b = BC$
+			\item $a=3, b=4$ and $c = BC$
+			\item $a=4, b=3$ and $c = BC$
+		\end{enumerate}\pause
+		
+	\textbf{Are they all possible? } \pause  NO!
+\end{slide}
+\begin{slide}[toc=]{Example - Pythagoras theorem (Cont'd)}
+	Let's check all of them:
+	\begin{enumerate}
+		\item putting $b=3, c=4$ and $a = BC$, we have $BC^2+3^2=4^2\iff BC^2=16-9=7 \implies BC=\sqrt{7}$ (?)
+		\item putting $b=4, c=3$ and $a = BC$, we have $BC^2=-7$, impossible
+	\end{enumerate}
+	\vdots
+	
+	Finally, putting $a=4, b=3$ and $c = BC$, we have $BC^2=25 \implies BC=5$.
+	
+	We have the two possible values for $BC$, $\sqrt{7}$ and $5$.
+	
+	Since $\sqrt{7}$ is not an integer, $BC$ must be $5$.\footnote{
+		\begin{small}``When you eliminate the impossible, whatever remains--however improbable--must be the truth.''\end{small}
+	}
+\end{slide}	
+\begin{slide}[toc=]{Example - Pythagoras theorem (Cont'd)}
+	\textbf{Why is the Pythgoras theorem true?}\pause
+
+	\input{pic/pyth_proof.tkz}
+\end{slide}
+\begin{slide}[toc=]{Example - Pythagoras theorem (Cont'd)}
+	\begin{proof}
+		Rotate the given right triangle to produce the figure.
+		
+		Area of the whole figure is $\left(a+b\right)^2=a^2+2ab+b^2$
+		
+		On the other hand, it is the sum of area the smaller square and four triangles.
+		
+		Area of $\triangle ABC$ is $\frac{1}{2}ab$, so does the other three triangles.
+		
+		Area of the smaller square is $c^2$
+		
+		Hence, $a^2+2ab+b^2 = 4\left(\frac{1}{2}ab\right) + c^2 \iff a^2+b^2=c^2$.	
+	\end{proof}
+\end{slide}		
+\begin{slide}{Remainder/Modulus}
+	\begin{def*}
+		Let $m,n$ be two integers with $n\neq 0$,
+		
+		$m \bmod n$ is defined as the remainder when $m$ is divided by $n$ 
+	\end{def*}
+	
+	For example, $7 \bmod 3 = 1$ and $107 \bmod 8 = 3$\pause
+	\medskip
+	
+	Let $n = 7\underbrace{201120112011\dots 20112011}_{2000-digits}$ be an $2001$-digit number.
+	
+	\medskip{}
+	Find $n \bmod 3$ and $n \bmod 11$. \pause (Joking!?) \pause
+	
+	Hints: Consider digit sum and alternating digits sum. \pause	
+
+	\begin{thm*}[Divisibility of 3 and 11]
+		Let $m$ be an integer, 
+		
+		$S$ be its digit sum and $A$ be its alternating digit sum,
+		
+		then $m \bmod 3 = S \bmod 3$ and $m \bmod 11 = A \bmod 11$
+	\end{thm*}\pause
+
+	As a demonstration,\pause
+	
+	Alternating digit sum of 10947 : 7 - 4 + 9 - 0 + 1 = 13    (adding from the rightmost digit)
+	
+	$10947 = 11\cdot 995 + 2$ hence $10947 \bmod 11 = 2$. Also, $13\bmod 11=2$.\pause
+	
+	Digit sum of 1234 : 1 + 2 + 3 + 4 = 10   (Easy)
+	
+	$1234=3\cdot 411 + 1$ hence $1234\bmod 3 = 1$. Also $10\bmod 3=1$.\pause
+	
+	We will come back to the proof when we have enough maths knowledge. (Number theory)
+\end{slide}
+\begin{slide}{Problem solving - Computer}
+	An extra tool - computer. \pause
+	
+	It can do task very fast. \pause
+	
+	This is the only advantage we got from it. \pause
+	
+	NO ANY MORE. \pause
+	
+	It is a rubbish, it cannot understand our languages. \pause
+	
+	It is more or less the same as your calculator. \pause
+\end{slide}
+\begin{slide}[toc=PCIMC-09-H5-Q16]{Guess number}
+	$n$ is a five-digit square number, whose digits are $2$ and $9$ only. Find all possible $n$.\pause
+	
+	Computer aided strategy:\pause
+	\begin{enumerate}
+		\item List out all the five-digit square numbers
+		\item Check the numbers one by one to see if its digits are $2$ and $9$ only.
+	\end{enumerate}\pause
+		
+	Mathematical way: (only idea are listed here)\pause
+	
+	\begin{small}
+		Let $n=\overline{abc}^2$ and $n=\overline{ABCDE}$
+		\begin{enumerate}
+			\item The unit digit must be $9$ and $c=3,7$ \pause  (Why?) \pause
+			\item The tenth's digit must be $2$ \pause (Key step!) \pause
+			\item $b=2,7$ \pause  (Why?) \pause
+			\item Since $323^2 > 320^2 = 102400$, we have $a = 1, 2$ \pause
+			\item If $a=2$ then  $ 2 < A < 9 $ , impossible \pause
+			\item $a=1$ and guess $123^2$ , $173^2$ , $127^2$ and $177^2$. \pause
+			\item $n=29929=173^2$
+		\end{enumerate}
+	\end{small}
+	
+	We will come back to step 2 and 3 when we have enough maths knowledge. (Number theory)
+\end{slide}
+\begin{slide}[toc=]{Guess number (Cont'd)}
+	Does the following computer related idea work?
+	
+	\begin{itemize}
+		\item Ask the computer to solve it.
+		\item Ask the computer to explain the previous questions.
+	\end{itemize}\pause
+	
+	NO, computer can never beat human being. \pause
+	
+	It is a deep result in mathematical logic that, 
+	
+	given a list of assumptions, there are something true but one cannot prove it.\pause
+	
+	Computer can only follow a list of instruction and perform it.\pause
+	
+	Prime checking example, to check whether 1001 is a prime.
+	\begin{enumerate}
+		\item Set $z = 1$ at first,
+		\item Starting from 2 to 1000 : if a number divide 1001, change $z$ to $0$.
+		\item If $z$ is $1$ then 1001 is a prime, otherwise it is a composite.
+	\end{enumerate}
+	
+	Computer can follow the above instruction and do each step one by one repeatedly.
+\end{slide}
+\section{Programming in C}
+\begin{slide}{What can a computer do?}
+	\begin{itemize}
+		\item	Arithmetic - Addition, subtraction, multiplication, quotient, modulus and division \pause
+		\item	Store value - Putting a value into some named boxes \pause
+		\item	Change value - Change a value to another value in a given boxes \pause		
+		\item	Store action - Record all steps for computing $\sqrt{x}$ etc. \pause
+		\item 	Perform action - to perform any defined action like finding $\sqrt{29929}$ \pause
+		\item	Comparison - equal, not equal, greater than, greater than or equal to ... \pause
+		\item	Logical comparison -  NOT , AND , OR , XOR (exclusive OR) \pause 
+		\item	Conditions - do different actions based on a condition \pause
+		\item	Looping - Repeated a list of actions \pause
+		\item	Recognize a value - The integer 1001 , $\pi$ , ``Your Name here'' etc. \pause
+	\end{itemize}
+	
+	For those who interested finding square root without calculator, read \href{http://en.wikipedia.org/wiki/Methods_of_computing_square_roots\#Digit-by-digit_calculation}{wiki page}
+\end{slide}
+\begin{slide}{Linguistic matter of human language}
+	Although we list out the steps for checking 1001 is a prime or not in English,
+	
+	a computer cannot understand our human language. 
+	
+	Our language has so many grammar rules, even ourselves would feel confusing sometimes.\pause
+	
+	Consider the followings:\pause
+	\begin{enumerate}
+		\item He looks so blue.
+		\item The second unique child of the God.
+	\end{enumerate}\pause
+	
+	The first sentence has two meaning according to different meaning of blue.
+	
+	The second sentence is self-contradicting.\pause
+	
+	Computer cannot distinguish the meanings in these situations.
+\end{slide}
+\begin{slide}{Programming Language - Computer's language}
+	Therefore, we need a simpler language that can describe the things for a computer can do.\pause
+	
+	These kind of languages is called a \textit{programming language}.\pause
+	
+	\medskip{}
+	
+	Programming Languages:\pause
+	
+	C, C++, Pascal, Common Lisp, Go, Prolog, ML, PHP, MATHLAB, Assembly, Machine Code, ...\pause
+
+	\medskip{}
+	
+	These languages are just like Chinese, English, Japanese, Spanish, French, ...\pause
+	
+	Programming languages has its grammar rules, punctuation marks, sentence structure etc...\pause
+	
+	First of all, spacings and lines are not important to computer. (it doesn't read by eyes) \pause
+	
+	\medskip{}
+	
+	Even worst, if you did write something contain grammatical error or missing punctuation etc.,
+	
+	a computer can never correct your mistake and it will just merely complain.
+	
+	In the training course, we will use C programming language and C++ later.\pause
+	
+	\textit{Syntax} is the term for Programming Languages' grammar rules and punctuation marks.
+\end{slide}
+\begin{slide}{C Syntax - Arithmetic}
+	\twocolumn[]{
+		Addition	
+		
+		Subtraction
+		
+		Multiplication
+		
+		Quotient
+		
+		Modulus
+		
+		Open Bracket
+		
+		Close Bracket
+		
+	}{
+		+
+		
+		-
+		
+		*
+		
+		/
+		
+		\%
+		
+		(
+		
+		)
+	}
+	
+	\medskip{}
+	
+	Unlike mathematics, the multiplication symbol is a star * in C.
+	
+	Therefore,  the expression $1+2\times 3$ is written as $1+2*3$ in C. \pause
+	
+	It has no power index in C, so $x^3$ must be written as $x*x*x$ in C. \pause
+	
+	Obviously, you cannot type fraction easily in a computer.
+	
+	$\frac{3+x}{a-2}$ must be written as $(3+x)/(a-2)$ in C. \pause
+	
+	\medskip{}
+	
+	\emph{WARNING}, $(3+x)/(a-2)$ and $3+x/a-2$ are not the same.
+	
+	$3+x/a-2$ means $3+\frac{x}{a}-2$. \pause
+
+	\medskip{}
+	
+	However many spaces are there, $3+x/a-2$  and $3+x\,\,\, /\,\,\,\,  a-2$ are the same.
+	
+	Therefore, we need to be strict in the rules that first multiplication then addition.
+	
+\end{slide}
+\section{End}
+\end{document}

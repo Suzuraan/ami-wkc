@@ -1,0 +1,81 @@
+%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[size=8pt,english,style=fyma,display=slidesnotes,mode=present,paper=screen]{powerdot}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphics}
+\onehalfspacing
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+	\theoremstyle{plain}
+	\newtheorem*{thm*}{Theorem}
+	\newtheorem{thm}{Theorem}	
+	\newtheorem*{def*}{Definition}
+\makeatother
+
+\usepackage{babel}
+
+\begin{document}
+	
+\title{HKOI Training}
+\author{$ami\sim wkc$}
+\date{Last modified: \today}
+\maketitle
+\lyxend\section[toc=Lecture 02]{Lecture 02 \\ Propositional Logic and Grammar in C}
+
+\section{Propositional Logic}
+\begin{slide}{Proposition / Statement}
+	A \emph{statement} / \emph{proposition} is a sentence that has either an answer, ``Yes'' or ``No''.\footnote{We skip a bit by using ``common sense'' to determine whether a sentence is a proposition or not.}\pause
+	
+	For example, all the following are proposition.\pause
+	\begin{itemize}
+		\item	Today is hot.\pause
+		\item	I will not go to school.\pause		
+		\item	$1+2+3=\frac{1}{2}\left(3\right)\left(4\right)$. \pause (Yes) \pause
+		\item	There are infinitely many prime numbers. \pause (Yes) \pause
+		\item	$\left(\sqrt{x^2}\right)^2 = x$. \pause (No) \pause
+		\item	If $n$ is a 5-digit square integer, then $n=29929$. \pause (Yes)
+		\item	$x=2$ only if $x^2=4$. \pause	(Yes)
+		\item	$x=2$ if $x^2=4$. \pause	(No)
+		\item	$n=2$ and $n$ is a prime. \pause	(Yes)
+	\end{itemize}
+\end{slide}
+\begin{slide}[toc=]{Proposition / Statement}
+	The following are not propositions or we won't discuss the following kind of sentences.
+
+	\begin{itemize}
+		\item	What time is it now?\pause
+		\item	\pause (empty string)\footnote{This is usually called the $\epsilon$-string} \pause		
+		\item	This statement is false. \pause
+		\item	I am lying. \footnote{The Liar paradox}\pause
+		\item	The second unique child of God is a female. \pause
+	\end{itemize}
+	
+	Actually, some of them can be considered as statements. 
+	
+	However, for simplicity, we shall avoid them at this moment.
+\end{slide}
+\begin{slide}{Proposition operators}
+	Given some propositions, we can construct another proposition from them.
+	
+	\begin{itemize}
+		\item	What time is it now?\pause
+		\item	\pause (empty sentence) \pause		
+		\item	This statement is false. \pause
+		\item	I am lying. \pause
+		\item	The second unique child of God is a female. \pause
+	\end{itemize}
+\end{slide}
+
+\section{End}
+\end{document}
