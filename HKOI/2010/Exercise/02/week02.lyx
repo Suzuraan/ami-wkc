@@ -1,0 +1,205 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\usepackage{pictex}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 5pheight%
+\rightmargin 2cm
+\bottommargin 4pheight%
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Week 2 Exercise
+\end_layout
+
+\begin_layout Section
+Logical equivalence
+\end_layout
+
+\begin_layout Standard
+In some of the proofs, we used the fact that if two propositions 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ are logically equivalence, then we can replace 
+\begin_inset Formula $P$
+\end_inset
+
+ by 
+\begin_inset Formula $Q$
+\end_inset
+
+ or 
+\begin_inset Formula $Q$
+\end_inset
+
+ by 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We are going to show this.
+\end_layout
+
+\begin_layout Standard
+In this exericse, the objects concerned are propositions.
+\end_layout
+
+\begin_layout Standard
+We denote 
+\begin_inset Formula $P_{1}\equiv P_{2}$
+\end_inset
+
+ if 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ are logically equivalent.
+\end_layout
+
+\begin_layout Problem
+.
+\end_layout
+
+\begin_layout Problem
+Show that the relation 
+\begin_inset Formula $\equiv$
+\end_inset
+
+ (logically equivalent) satisfying the following:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Reflexive For each proposition 
+\begin_inset Formula $P$
+\end_inset
+
+, 
+\begin_inset Formula $P\equiv P$
+\end_inset
+
+ is true.
+\end_layout
+
+\begin_layout Description
+Symmetric For each propositions 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+, if 
+\begin_inset Formula $P_{1}\equiv P_{2}$
+\end_inset
+
+ then 
+\begin_inset Formula $P_{2}\equiv P_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Transitive For each propositions 
+\begin_inset Formula $P_{1},P_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+, if 
+\begin_inset Formula $P_{1}\equiv P_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{2}\equiv P_{3}$
+\end_inset
+
+ then 
+\begin_inset Formula $P_{1}\equiv P_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+We only prove transitivity, the others are left as exercise.
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+By definition of logically equivalent,
+\end_layout
+
+\end_body
+\end_document
