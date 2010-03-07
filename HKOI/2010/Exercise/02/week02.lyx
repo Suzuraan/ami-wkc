@@ -5,12 +5,15 @@
 \textclass amsart
 \begin_preamble
 \usepackage{pictex}
+\input{euclid_input.tex}
 \end_preamble
 \use_default_options true
 \begin_modules
 theorems-ams
 eqs-within-sections
 figs-within-sections
+theorems-sec
+theorems-ams-extended
 \end_modules
 \language english
 \inputencoding auto
@@ -58,12 +61,43 @@ figs-within-sections
 Week 2 Exercise
 \end_layout
 
-\begin_layout Section
-Logical equivalence
+\begin_layout Standard
+\align center
+Last Modified: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today{}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-In some of the proofs, we used the fact that if two propositions 
+\align center
+Due Date: 13-Mar
+\end_layout
+
+\begin_layout Standard
+For a problem with a 
+\begin_inset Formula $\left(*\right)$
+\end_inset
+
+, you may skip if you find difficulities.
+\end_layout
+
+\begin_layout Section
+First order logic
+\end_layout
+
+\begin_layout Standard
+In the lecture, we assumed that 
 \begin_inset Formula $P$
 \end_inset
 
@@ -71,31 +105,24 @@ In some of the proofs, we used the fact that if two propositions
 \begin_inset Formula $Q$
 \end_inset
 
- are logically equivalence, then we can replace 
+ can be interchanged when the propositions 
 \begin_inset Formula $P$
 \end_inset
 
- by 
+ and 
 \begin_inset Formula $Q$
 \end_inset
 
- or 
-\begin_inset Formula $Q$
-\end_inset
-
- by 
-\begin_inset Formula $P$
-\end_inset
-
-.
+ are logically equivalent.
 \end_layout
 
 \begin_layout Standard
-We are going to show this.
+In this exericse, we will verify this.
+ 
 \end_layout
 
 \begin_layout Standard
-In this exericse, the objects concerned are propositions.
+All the objects concerned in the first two sections are propositions.
 \end_layout
 
 \begin_layout Standard
@@ -111,11 +138,331 @@ We denote
 \begin_inset Formula $P_{2}$
 \end_inset
 
- are logically equivalent.
+ are logically equivalent , 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+ to be a tautology and 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ to be a contradiction.
 \end_layout
 
 \begin_layout Problem
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $*$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $P_{1},P_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ be propositions and if 
+\begin_inset Formula $P_{1}\equiv P_{2}$
+\end_inset
+
+, prove the followings:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+(
+\begin_inset Formula $\sim P_{1}$
+\end_inset
+
+) 
+\begin_inset Formula $\equiv$
+\end_inset
+
+ (
+\begin_inset Formula $\sim P_{2}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $Q$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+) 
+\begin_inset Formula $\equiv$
+\end_inset
+
+ (
+\begin_inset Formula $Q$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $Q$
+\end_inset
+
+ or 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+) 
+\begin_inset Formula $\equiv$
+\end_inset
+
+ (
+\begin_inset Formula $Q$
+\end_inset
+
+ or 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $P_{1}\implies Q$
+\end_inset
+
+) 
+\begin_inset Formula $\equiv$
+\end_inset
+
+ (
+\begin_inset Formula $P_{2}\implies Q$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $Q\implies P_{1}$
+\end_inset
+
+) 
+\begin_inset Formula $\equiv$
+\end_inset
+
+ (
+\begin_inset Formula $Q\implies P_{2}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $Q\iff P_{1}$
+\end_inset
+
+) 
+\begin_inset Formula $\equiv$
+\end_inset
+
+ (
+\begin_inset Formula $Q\iff P_{2}$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+You have to use the truth table to verify.
+ 
+\end_layout
+
+\begin_layout Remark*
+If you use the theorem 
+\begin_inset Formula $P\iff Q\equiv\left(P\implies Q\right)\land\left(Q\implies P\right)$
+\end_inset
+
+ and assume they can be interchanged,
+\end_layout
+
+\begin_layout Remark*
+you already assume the replacement can be used.
+\end_layout
+
+\begin_layout Problem
+Complete the problems in lecture note 2, slide 
+\begin_inset Formula $19$
+\end_inset
+
 .
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+Prove the following
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+(
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(P\implies Q\right)$
+\end_inset
+
+) is logically equivalent to 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $P$
+\end_inset
+
+) is logically equivalent to 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ or 
+\begin_inset Formula $P$
+\end_inset
+
+) is logically equivalent to 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+ or 
+\begin_inset Formula $P$
+\end_inset
+
+) is logically equivalent to 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $P$
+\end_inset
+
+) is logically equivalent to 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $P$
+\end_inset
+
+ or 
+\begin_inset Formula $P$
+\end_inset
+
+) is logically equivalent to 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $P$
+\end_inset
+
+) is logically equivalent to 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+Are (
+\begin_inset Formula $P$
+\end_inset
+
+ or 
+\begin_inset Formula $P$
+\end_inset
+
+) , (
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $P$
+\end_inset
+
+) logically equivalent? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Problem
@@ -168,15 +515,15 @@ Transitive For each propositions
 \begin_inset Formula $P_{3}$
 \end_inset
 
-, if 
+, if (
 \begin_inset Formula $P_{1}\equiv P_{2}$
 \end_inset
 
- and 
+) and (
 \begin_inset Formula $P_{2}\equiv P_{3}$
 \end_inset
 
- then 
+) then 
 \begin_inset Formula $P_{1}\equiv P_{3}$
 \end_inset
 
@@ -185,10 +532,341 @@ Transitive For each propositions
 
 \end_deeper
 \begin_layout Proof
-We only prove transitivity, the others are left as exercise.
+Use a truth table to demostrate.
+\end_layout
+
+\begin_layout Section
+Second order logic
+\end_layout
+
+\begin_layout Standard
+In the lecture, we mentioned that a variable can represent not only values,
+ but also other objects like human.
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+\emph on
+domain of discourse
+\series default
+\emph default
+ is the collection of all possible objects that a variable can represent.
+\end_layout
+
+\begin_layout Standard
+As the truth value of a proposition with FOR-ALL or THERE-EXISTS depends
+ on all the possible propositions,
+\end_layout
+
+\begin_layout Standard
+we must specify the 
+\series bold
+\emph on
+domain of discourse
+\series default
+\emph default
+ before using the universal quantifier or the existential quantifier.
+\end_layout
+
+\begin_layout Standard
+Usually, we use the brackets notation to denote the possible objects inside
+ the 
+\series bold
+\emph on
+domain of discourse
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+For example, 
+\begin_inset Formula $\left\{ 1,2,3\right\} $
+\end_inset
+
+ has three objects 
+\begin_inset Formula $1$
+\end_inset
+
+, 
+\begin_inset Formula $2$
+\end_inset
+
+ and 
+\begin_inset Formula $3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+Let the domain of discourse to be 
+\begin_inset Formula $\left\{ 2,3,5\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+Let 
+\begin_inset Formula $P_{1}\left(x\right):=\mbox{"}x\mbox{ is an odd number."}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $P_{2}\left(x\right):=\mbox{"}x\mbox{ is an even number."}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $P_{3}\left(x\right):=\mbox{"}x\mbox{ is an prime number."}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Problem
+What is the truth value of the following propositions? Explain.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\forall x,P_{1}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists x,P_{1}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x,P_{3}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x,P_{2}\left(x\right)\mbox{ and }P_{3}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall x,P_{2}\left(x\right)\implies P_{3}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists x,P_{3}\left(x\right)\mbox{ and }P_{2}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\exists x,P_{3}\left(x\right)\implies P_{2}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+We should translate the above symbolic notation to english so as to understand
+ the proposition.
 \end_layout
 
 \begin_layout Proof
+The first statement is "Every object is an odd number", clearly this is
+ false as 
+\begin_inset Formula $2$
+\end_inset
+
+ is a possible object.
+\end_layout
+
+\begin_layout Proof
+Note that there are subtle difference between the last two pairs of propositions.
+\end_layout
+
+\begin_layout Proof
+The forth statement is "For each object, it is a prime and even number",
+ false since 
+\begin_inset Formula $3$
+\end_inset
+
+ is odd.
+\end_layout
+
+\begin_layout Proof
+The fifth statement is "For each object, if it is even then it is a prime",
+ true as the only even number is a prime.
+\end_layout
+
+\begin_layout Proof
+The others are left as exercise.
+\end_layout
+
+\begin_layout Remark*
+If the domain of discourse has other positive even number like 
+\begin_inset Formula $4$
+\end_inset
+
+, then the fifth statement is false.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Translation
+\end_layout
+
+\begin_layout Standard
+In the last exercise, we translated a proposition written in symbols to
+ english.
+ Now, we will do the reverse way.
+\end_layout
+
+\begin_layout Example
+Let the domain of discourse be all the animals,
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $E\left(x,y\right):=\mbox{"}x\mbox{ eats }y"$
+\end_inset
+
+, 
+\begin_inset Formula $W\left(x\right):=\mbox{"}x\mbox{ is white."}$
+\end_inset
+
+, 
+\begin_inset Formula $R\left(x\right):=\mbox{"}x\mbox{ is red."}$
+\end_inset
+
+ and 
+\begin_inset Formula $F\left(x\right):=\mbox{"}x\mbox{ is a fish"}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+Let 
+\begin_inset Formula $a$
+\end_inset
+
+ be a speical white fish, the proposition "The speical white fish eats any
+ fishes" is "
+\begin_inset Formula $\forall x,F\left(y\right)\implies E\left(a,y\right)$
+\end_inset
+
+".
+\end_layout
+
+\begin_layout Example
+Let 
+\begin_inset Formula $b$
+\end_inset
+
+ be a red fish which eats some fish (not necessary every).
+\end_layout
+
+\begin_layout Example
+The fish 
+\begin_inset Formula $b$
+\end_inset
+
+ can be described as "
+\begin_inset Formula $F\left(b\right)\mbox{ and }R\left(b\right)\mbox{ and }\left(\exists x,F\left(x\right)\mbox{ and }E\left(b,x\right)\right)$
+\end_inset
+
+".
+\end_layout
+
+\begin_layout Example
+The proposition "There is animal which eats the red fish 
+\begin_inset Formula $b$
+\end_inset
+
+" is "
+\begin_inset Formula $\exists x,E\left(x,b\right)$
+\end_inset
+
+".
+\end_layout
+
+\begin_layout Example
+The proposition "There is an animal which eats every red fish" is "
+\begin_inset Formula $\exists x,\forall y,\left(F\left(y\right)\mbox{ and }R\left(y\right)\right)\implies E\left(x,y\right)$
+\end_inset
+
+".
+\end_layout
+
+\begin_layout Example
+The proposition "The only animal that 
+\begin_inset Formula $b$
+\end_inset
+
+ eats is fish" is "
+\begin_inset Formula $\forall x,E\left(b,x\right)\implies F\left(x\right)$
+\end_inset
+
+".
+\end_layout
+
+\begin_layout Example
+The proposition "There is an unique animal which eats every white animal"
+ is 
+\end_layout
+
+\begin_layout Example
+"
+\begin_inset Formula $\exists y,\left(\forall t,W\left(t\right)\implies E\left(y,t\right)\right)\mbox{ and }\left(\forall x,\mbox{ if }\left(\forall z,W\left(z\right)\implies E\left(x,z\right)\right)\mbox{ then }x=y\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+To explain in depth for the last one, logically "one and only one" means
+ that there is at least one such object
+\end_layout
+
+\begin_layout Example
+and whenever there are two objects satisfying the same properties then they
+ are the same.
+\end_layout
+
+\begin_layout Example
+So, we first say that there is an animal which eats every white animal.
+\end_layout
+
+\begin_layout Example
+Secondly, whenever there is an animal which eats every white animal then
+ they are the same.
+\end_layout
+
+\begin_layout Remark*
 
 \family roman
 \series medium
@@ -198,8 +876,1409 @@ We only prove transitivity, the others are left as exercise.
 \bar no
 \noun off
 \color none
-By definition of logically equivalent,
+"
+\begin_inset Formula $\forall t,W\left(t\right)\mbox{ and }E\left(y,t\right)$
+\end_inset
+
+" is the proposition "Every animal is white and eatten by 
+\begin_inset Formula $y$
+\end_inset
+
+".
 \end_layout
 
+\begin_layout Problem
+Accoring to the above example, write down the symbolic propositions of the
+ followings:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Every animal eat any fish.
+\end_layout
+
+\begin_layout Enumerate
+The only fish that 
+\begin_inset Formula $b$
+\end_inset
+
+ eats is the white fish 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+There is a fish which every fish eat it.
+\end_layout
+
+\begin_layout Enumerate
+There is a red animal which eats all the white animal.
+\end_layout
+
+\begin_layout Enumerate
+Every white animal eats some red animal.
+\end_layout
+
+\begin_layout Enumerate
+There is an white animal which eats red fish.
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+Let the domain of discourse be all the real numbers, 
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $I\left(x\right):=\mbox{"}x\mbox{ is an integer"}$
+\end_inset
+
+, 
+\begin_inset Formula $L\left(x,y\right):=\mbox{"}x\mbox{ is less than }y\mbox{"}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+Write down the symbolic proposition for the following statements:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+There is an integer less than 
+\begin_inset Formula $10$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+There is no the greatest integer.
+\end_layout
+
+\begin_layout Enumerate
+There is no greatest real number.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(*\right)$
+\end_inset
+
+There is only one integer which is less than 
+\begin_inset Formula $2$
+\end_inset
+
+ and greater than 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Application in maths
+\end_layout
+
+\begin_layout Standard
+In mathematics, we usually assume the domain of discourse to be all the
+ real numbers.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+Non-negative of square
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\forall x,x^{2}\geq0$
+\end_inset
+
+ and equality holds if and only if 
+\begin_inset Formula $x=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+i.e.
+ Every square of a real number is non-negative and 
+\end_layout
+
+\begin_layout Theorem
+the square of a number is zero if and only if the number itself is zero.
+\end_layout
+
+\begin_layout Standard
+Here, we give a famous algebraic proof of the AGM-inequality, which we did
+ geometrically in last exericse.
+\end_layout
+
+\begin_layout Example
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+AGM-inequality
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $x,y$
+\end_inset
+
+ be real numbers, prove that 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula \[
+\dfrac{x+y}{2}\geq\sqrt{xy}\]
+
+\end_inset
+
+ and equality holds iff 
+\begin_inset Formula $x=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $a=\sqrt{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $b=\sqrt{y}$
+\end_inset
+
+, by the non-negative of square, we have 
+\begin_inset Formula $\left(a-b\right)^{2}\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+i.e.
+ 
+\begin_inset Formula $a^{2}-2ab+b^{2}=x-2\sqrt{xy}+y\geq0\iff x+y\geq2\sqrt{xy}\iff\dfrac{x+y}{2}\geq\sqrt{xy}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Equality holds iff 
+\begin_inset Formula $a-b=0$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $a=b\iff\sqrt{x}=\sqrt{y}\iff x=y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+HM
+\begin_inset Formula $\leq$
+\end_inset
+
+GM
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x,y$
+\end_inset
+
+ be real numbers, prove that
+\begin_inset Formula \[
+\frac{2}{\frac{1}{a}+\frac{1}{b}}\leq\sqrt{ab}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+and equality holds iff 
+\begin_inset Formula $x=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+Hints: Let 
+\begin_inset Formula $a=\frac{1}{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $b=\frac{1}{y}$
+\end_inset
+
+ and use the AGM-inequality on 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+AM
+\begin_inset Formula $\leq$
+\end_inset
+
+QM
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x,y$
+\end_inset
+
+ be real numbers, we always have
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula \[
+\frac{x+y}{2}\leq\sqrt{\frac{x^{2}+y^{2}}{2}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+and equality holds iff 
+\begin_inset Formula $x=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Compare 
+\begin_inset Formula $\left(\frac{x+y}{2}\right)^{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $\frac{x^{2}+y^{2}}{2}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\frac{x^{2}+y^{2}}{2}-\left(\frac{x+y}{2}\right)^{2}=\frac{2\left(x^{2}+y^{2}\right)-\left(x^{2}+y^{2}+2xy\right)}{4}=\frac{x^{2}+y^{2}-2xy}{2}=\frac{\left(x-y\right)^{2}}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Their difference is a square of 
+\begin_inset Formula $\left(x-y\right)$
+\end_inset
+
+ divided by 
+\begin_inset Formula $2$
+\end_inset
+
+, which is always non-negative.
+\end_layout
+
+\begin_layout Proof
+It is zero if and only if 
+\begin_inset Formula $x=y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+AGM-inequality
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x_{1},x_{2},\dots,x_{n}$
+\end_inset
+
+ be real numbers, we always have
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula \[
+\frac{x_{1}+x_{2}+\cdots+x_{n}}{n}\geq\sqrt[n]{x_{1}x_{2}\cdots x_{n}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+and equality holds iff 
+\begin_inset Formula $x_{1}=x_{2}=x_{3}=\cdots=x_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We will prove this later.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Euclidean algorithm for finding greatest common divisor
+\end_layout
+
+\begin_layout Standard
+Usually, we use the term "greatest common divisor" instead of "highest common
+ factor".
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $m,n$
+\end_inset
+
+ be two positive integers and 
+\begin_inset Formula $\gcd\left(m,n\right)$
+\end_inset
+
+ be their 
+\series bold
+greatest common divisor.
+\end_layout
+
+\begin_layout Theorem
+There are some integers 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $mx_{0}+ny_{0}=\gcd\left(m,n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+i.e.
+ You can find some multiple of 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ such that the sum is exactly the highest common factor.
+\end_layout
+
+\begin_layout Example
+As an example, let 
+\begin_inset Formula $m=15$
+\end_inset
+
+ and 
+\begin_inset Formula $n=80$
+\end_inset
+
+, we know that 
+\begin_inset Formula $\gcd\left(m,n\right)=5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+In fact, 
+\begin_inset Formula $80\times\left(1\right)+15\times\left(-5\right)=5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+There are infinitely many pairs, whcih can be found as follows:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $5=n\cdot\left(1\right)+m\cdot\left(-5\right)=n\cdot\left(1+m-m\right)+m\cdot\left(-5+n-n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula $\therefore5=n\cdot\left(1+m\right)-mn+m\cdot\left(-5-n\right)+mn=n\cdot\left(1+m\right)+m\cdot\left(-5-n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Therefore, putting back 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+, we have 
+\begin_inset Formula $5=80\times\left(1+15\right)+15\times\left(-5-80\right)=80\times\left(16\right)+15\times\left(-85\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $m,n$
+\end_inset
+
+ be integers and 
+\begin_inset Formula $d=\gcd\left(m,n\right)$
+\end_inset
+
+ and if 
+\begin_inset Formula $x_{0},y_{0}$
+\end_inset
+
+ are integers such that 
+\begin_inset Formula $mx_{0}+ny_{0}=d$
+\end_inset
+
+ then
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula \[
+m\left(x_{0}+kn\right)+n\left(y_{0}-km\right)=d\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+i.e.
+ The pairs can be described as 
+\begin_inset Formula $\left(x_{0}+kn,y_{0}-km\right)$
+\end_inset
+
+ for all integers 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If we want to find every such pair, the problem is reduced to finding a
+ particular pair of multiple.
+\end_layout
+
+\begin_layout Standard
+To find a particular one, we use the following method.
+\end_layout
+
+\begin_layout Theorem
+\paragraph_spacing single
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+Euclidean algorithm
+\end_layout
+
+\end_inset
+
+Assume 
+\begin_inset Formula $m>n$
+\end_inset
+
+, define the numbers 
+\begin_inset Formula $r_{k},q_{k},x_{k},y_{k}$
+\end_inset
+
+ as follows:
+\end_layout
+
+\begin_layout Theorem
+\paragraph_spacing single
+\begin_inset Formula \begin{align*}
+r_{0} & =m\\
+r_{1} & =n\\
+r_{k} & =r_{k-2}\bmod r_{k-1}\mbox{ , for }k>1\\
+q_{k} & =\frac{r_{k-2}-r_{k}}{r_{k-1}},\mbox{ for }k>1\\
+x_{0} & =1\\
+y_{0} & =0\\
+x_{1} & =0\\
+y_{1} & =1\\
+x_{k} & =x_{k-2}-q_{k}x_{k-1},\mbox{ for }k>1\\
+y_{k} & =y_{k-2}-q_{k}y_{k-1},\mbox{ for }k>1\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Compute the numbers until 
+\begin_inset Formula $r_{k}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Then 
+\begin_inset Formula $r_{k-1}=\gcd\left(m,n\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $mx_{k-1}+ny_{k-1}=r_{k-1}=\gcd\left(m,n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+At each row, we have 
+\begin_inset Formula $mx_{k}+ny_{k}=r_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+The 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+'s are the quotient, so we can find the 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ by doing a simple division on 
+\begin_inset Formula $r_{k-2}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{k-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+We find the pair for 
+\begin_inset Formula $m=130$
+\end_inset
+
+ and 
+\begin_inset Formula $n=15$
+\end_inset
+
+, knowing 
+\begin_inset Formula $\gcd\left(130,15\right)=5$
+\end_inset
+
+, as follow:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+doEuclideanAlgorithm{130}{15}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First, we write down the row for 
+\begin_inset Formula $k=0$
+\end_inset
+
+ and 
+\begin_inset Formula $k=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Clearly, 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $q_{1}$
+\end_inset
+
+ are undefined, so we left it blank.
+\end_layout
+
+\begin_layout Standard
+We can do a division on 
+\begin_inset Formula $130\div15$
+\end_inset
+
+ to get 
+\begin_inset Formula $q_{2}=8$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{2}=10$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ are obtained by subtracting 
+\begin_inset Formula $q_{2}$
+\end_inset
+
+ times the number at 
+\begin_inset Formula $k=1$
+\end_inset
+
+ from the number at 
+\begin_inset Formula $k=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In general, after finding the quotient,
+\end_layout
+
+\begin_layout Standard
+the number 
+\begin_inset Formula $x_{k},y_{k}$
+\end_inset
+
+ are found by multipling the previous row's 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ by the quotient,
+\end_layout
+
+\begin_layout Standard
+then subtract it from the previous two row's 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Therefore, we get 
+\begin_inset Formula $130\times\left(-1\right)+15\times\left(9\right)=5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The other solutions are 
+\begin_inset Formula $130\times\left(-1+15k\right)+15\times\left(9-130k\right)$
+\end_inset
+
+ for any integer 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+Let 
+\begin_inset Formula $m=2036$
+\end_inset
+
+ and 
+\begin_inset Formula $n=128$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Find 
+\begin_inset Formula $\gcd\left(m,n\right)$
+\end_inset
+
+ by using the Euclidean algorithm.
+\end_layout
+
+\begin_layout Enumerate
+Hence find a pair of integers 
+\begin_inset Formula $\left(x_{0},y_{0}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $mx_{0}+ny_{0}=\gcd\left(m,n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find all such integer pairs.
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+Let 
+\begin_inset Formula $m=144$
+\end_inset
+
+ and 
+\begin_inset Formula $n=89$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Find 
+\begin_inset Formula $\gcd\left(m,n\right)$
+\end_inset
+
+ by using the Euclidean algorithm.
+\end_layout
+
+\begin_layout Enumerate
+Find a pair of integers 
+\begin_inset Formula $\left(x_{0},y_{0}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $mx_{0}+ny_{0}=\gcd\left(m,n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find all such integer pairs.
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+If 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ are Fibonacci numbers, it takes the longest steps to compute.
+\end_layout
+
+\begin_layout Section
+Synthetic substitution
+\end_layout
+
+\begin_layout Problem
+Let 
+\begin_inset Formula $f\left(x\right)=4x^{5}-3x^{4}-7x^{3}-10x+1$
+\end_inset
+
+ be a polynomial.
+ 
+\end_layout
+
+\begin_layout Problem
+Using the synthetic substitution, find 
+\begin_inset Formula $f\left(3\right)$
+\end_inset
+
+ and find the quotient when 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ is divided by 
+\begin_inset Formula $\left(x-3\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Regular Expression
+\end_layout
+
+\begin_layout Standard
+In the lecture, we discussed some of the regular expressions.
+\end_layout
+
+\begin_layout Standard
+For detail, please check wikipedia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+matches any character including newline.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a{3,5}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+matches any string of at least 3 'a' and at most 5 'a', i.e.
+ "aaa" , "aaaa" and "aaaaa".
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(ab){1,2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+matches "ab" , "abab".
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ab{1,2}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+matches "ab" , "abb"
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
++
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+means one or more
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+means zero or one
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+means zero or more
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+|
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+means alternative choice
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+{m,n}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+means at least 
+\begin_inset Formula $m$
+\end_inset
+
+ times and at most 
+\begin_inset Formula $n$
+\end_inset
+
+ times
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gr(a|e)y
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+matches "gray"
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Write down a regular expression (if exists) which matches
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Any even computer-integer
+\end_layout
+
+\begin_layout Enumerate
+Any odd computer-integer
+\end_layout
+
+\begin_layout Enumerate
+Any non-negative computer-integer
+\end_layout
+
+\begin_layout Enumerate
+Any string that starts with 
+\end_layout
+
+\begin_layout Enumerate
+Any negative computer-integer
+\end_layout
+
+\begin_layout Enumerate
+Any negative odd copmuter-integer
+\end_layout
+
+\begin_layout Enumerate
+"apple" and "pipeapple"
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $^{\left(*\right)}$
+\end_inset
+
+ Any string that has the same number of '
+\begin_inset Formula $0$
+\end_inset
+
+' and '
+\begin_inset Formula $1$
+\end_inset
+
+'
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+Actually, the last kind of string cannot be represented using regular expression.
+\end_layout
+
+\begin_layout Remark*
+The impossibility is guaranteed by the 
+\emph on
+pumping lemma for regular languages
+\emph default
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We will discuss this once we finished the first seven chapters of Discrete
+ Mathematics
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Describe what the following regular expression matches:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+[1-9][0-9]
+\end_layout
+
+\begin_layout Enumerate
+[1-9][0-9]{0,2}
+\end_layout
+
+\begin_layout Enumerate
+[
+\backslash
++
+\backslash
+-]?[02468]
+\end_layout
+
+\begin_layout Enumerate
+[a-z]+
+\end_layout
+
+\begin_layout Enumerate
+[A-Z][a-z]*
+\end_layout
+
+\begin_layout Enumerate
+a((a|b)
+\backslash
+{2,2})*b
+\end_layout
+
+\begin_layout Enumerate
+(aa|bb)+
+\end_layout
+
+\begin_layout Enumerate
+(aa)+|(bb)+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Evaluation of arithmetic expression in C
+\end_layout
+
+\begin_layout Standard
+The operator precedence is as usual, i.e.
+ 1+2*3 are evaluated as 1 + (2*3).
+\end_layout
+
+\begin_layout Standard
+The order for quotient and modulus are the same as multiplication and real
+ division.
+\end_layout
+
+\begin_layout Standard
+The operations are performed from left to right if they have the same precedence.
+\end_layout
+
+\begin_layout Standard
+However, please note that -1 * 2 is interpreted as "the product of negative
+ one and 2".
+\end_layout
+
+\begin_layout Standard
+Therefore, in this sense, the unary operator - (negative) and + (positive)
+ is the fastest.
+\end_layout
+
+\begin_layout Standard
+Note that, the exponent "e" , "E" is NOT an operator.
+\end_layout
+
+\begin_layout Standard
+The computer interpret "1E+2" directly as the real number 
+\begin_inset Formula $1\times10^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The computer cannot understand "1E(3+4)".
+\end_layout
+
+\begin_layout Standard
+It is not a computer real number, because it does not match the regular
+ expression for a real number.
+\end_layout
+
+\begin_layout Problem
+Evaluate the following expression as if in a computer:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+1+2*3/2
+\end_layout
+
+\begin_layout Enumerate
+1+3/2*2
+\end_layout
+
+\begin_layout Enumerate
+1+42364117%11
+\end_layout
+
+\begin_layout Enumerate
+71123/10
+\end_layout
+
+\begin_layout Enumerate
+71123%10
+\end_layout
+
+\begin_layout Enumerate
+(((1+2)*3)4)*5
+\end_layout
+
+\begin_layout Enumerate
+11+23.0/8
+\end_layout
+
+\begin_layout Enumerate
+12.5/5+1e5
+\end_layout
+
+\begin_layout Enumerate
+3e2/2+9%7
+\end_layout
+
+\begin_layout Enumerate
+71123%100/10
+\end_layout
+
+\begin_layout Enumerate
+-1*-3+5
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
