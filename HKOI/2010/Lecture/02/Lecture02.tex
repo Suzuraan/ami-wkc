@@ -8,9 +8,11 @@
 \usepackage{amsmath}
 \usepackage{tikz}
 \usepackage{graphics}
+\usepackage{polynom}
 \onehalfspacing
 
 \makeatletter
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 \pdfpageheight\paperheight
@@ -33,7 +35,7 @@
 \maketitle
 \lyxend\section[toc=Lecture 02]{Lecture 02 \\ Propositional Logic and Grammar in C}
 
-\section{Propositional Logic}
+\section{First Order Propositions}
 \begin{slide}{Proposition / Statement}
 	A \emph{statement} / \emph{proposition} is a sentence that has either an answer, ``Yes'' or ``No''.\footnote{We skip a bit by using ``common sense'' to determine whether a sentence is a proposition or not.}\pause
 	
@@ -44,16 +46,17 @@
 		\item	I will not go to school.\pause		
 		\item	$1+2+3=\frac{1}{2}\left(3\right)\left(4\right)$. \pause (Yes) \pause
 		\item	There are infinitely many prime numbers. \pause (Yes) \pause
-		\item	$\left(\sqrt{x^2}\right)^2 = x$. \pause (No, it is false when x is negative.) \pause
-		\item	If $n$ is a 5-digit square integer, then $n=29929$. \pause (Yes)
+		\item	$\sqrt{x^2} = x$. \pause (No, it is false when x is negative.) \pause
+		\item	If $n$ is a 5-digit square integer, then $n=29929$. \pause (No)
 		\item	$x=2$ only if $x^2=4$. \pause	(Yes)
 		\item	$x=2$ if $x^2=4$. \pause	(No)
 		\item	$n=2$ and $n$ is a prime. \pause	(Yes)
 	\end{itemize}
 \end{slide}
-\begin{slide}[toc=]{Proposition / Statement}
-	The following are not propositions or we won't discuss the following kind of sentences.
 
+\begin{slide}[toc=]{Proposition / Statement}
+	The following are not propositions or we won't discuss the following kind of sentences. \pause
+	
 	\begin{itemize}
 		\item	What time is it now?\pause
 		\item	\pause (empty string)\footnote{This is usually called the $\epsilon$-string} \pause		
@@ -67,16 +70,701 @@
 	However, for simplicity, we shall avoid them at this moment.
 \end{slide}
 \begin{slide}{Proposition operators}
-	Given some propositions, we can construct another proposition from them.
+	Given some propositions, 
+	
+	we can create new propositions from them by using \emph{logical connectives}. \pause
+	
+	Be careful, we don't interpret the meaning at this stage. \pause
+	
+	For example\footnote{We don't care about grammar or tense. What we are interested in the new proposition only.}, \pause
+		
+	\begin{itemize}
+		\item	NOT(Today is hot).\pause
+		\item	NOT(I will not go to school). \pause		
+		\item	Today is hot AND I will go to school. \pause
+		\item	If today is hot, then I will not go to school. \pause
+		\item	$x>3$ OR $x<-1$. \pause		
+		\item	Every $x$ is greater than $3$. \pause
+		\item	There is a number which is less than $-1$ or greater than $3$. \pause		
+	\end{itemize}
+\end{slide}
+\begin{slide}{Negation - NOT}
+	The negation of a proposition $P$ is $\sim{}P$. \pause
+	
+	Some book use $\lnot P$ to denote the negation. \pause
+	
+	It is simply a proposition prefixed by a word ``not''.
 	
 	\begin{itemize}
-		\item	What time is it now?\pause
-		\item	\pause (empty sentence) \pause		
-		\item	This statement is false. \pause
-		\item	I am lying. \pause
-		\item	The second unique child of God is a female. \pause
+		\item	NOT(Today is hot).\pause
+		\item	NOT(I will not go to school). \pause		
+		\item	NOT($x>3$). \pause
+		\item	NOT($x$ is a prime). \pause		
+	\end{itemize}
+\end{slide}
+\begin{slide}{Conjunction - AND}
+	The conjunction of two propositions $P,Q$ is $(P)\land{}(Q)$. \pause
+	
+	We will denote the conjunction usually by $(P)\, and\, (Q)$ instead. \pause
+	
+	It connects two propositions by adding by a word ``and''.\pause
+	
+	We may sometimes omit the parentheses as well as long as the meaning is clear.\pause
+	
+	\begin{itemize}
+		\item	(Today is hot) AND (I will go to school).\pause
+		\item	Today is hot AND I will go to school.\pause		
+		\item	NOT(I will not go to school) AND NOT(Today is hot). \pause
+		\item   ($x>2$) AND ($x$ is even). \pause		
+	\end{itemize}
+\end{slide}
+\begin{slide}{Disjunction - OR}
+	The disjunction of two propositions $P,Q$ is $(P)\lor{}(Q)$. \pause
+	
+	We will denote the disjunction usually by $(P)\, or\, (Q)$ instead. \pause
+	
+	It connects two propositions by adding by a word ``or''.\pause
+	
+	We may sometimes omit the parentheses as well as long as the meaning is clear.\pause
+	
+	\begin{itemize}
+		\item	(Today is hot) OR (I will go to school).\pause
+		\item	Today is hot OR I will go to school.\pause		
+		\item	NOT(I will not go to school) OR NOT(Today is hot). \pause		
+	\end{itemize}
+\end{slide}
+\begin{slide}{Implication - IF-THEN}
+	The implication of two propositions $P,Q$ is ``IF $(P)$ THEN $(Q)$''. \pause
+	
+	We will denote the implication usually by ``$P\implies{}Q$'' instead. \pause
+	
+	It connects two propositions by adding by an arrow or using the words ``if'' and ``then''.\pause
+	
+	We may sometimes omit the parentheses as well as long as the meaning is clear.\pause
+	
+	\begin{itemize}
+		\item	IF (Today is hot) THEN (I will go to school).\pause
+		\item	IF (($x>2$) AND ($x$ is even)) THEN (NOT($x$ is a prime)).\pause	
+		\item	NOT(I will not go to school) OR NOT(Today is hot). \pause
+	\end{itemize}
+	
+	\begin{def*} Let $P$ and $Q$ be propositions,
+		\begin{itemize}
+		\item	The \emph{\textbf{converse}} of an implication $P\implies{}Q$ is $Q\implies{}P$.\footnote{It is sometimes denoted by $P\Longleftarrow{}Q$.} \pause
+			
+		\item 	The \emph{\textbf{inverse}} of an implication $P\implies{}Q$ is $\sim{}P\implies{}\sim{}Q$. \pause
+			
+		\item	The \emph{\textbf{contrapositive}} of an implication $P\implies{}Q$ is $\sim{}Q\implies{}\sim{}P$. \pause
+		\end{itemize}
+	\end{def*}
+\end{slide}
+
+\begin{slide}[toc=Biconditional]{Biconditional - IF-AND-ONLY-IF}
+	The bi-conditional of two propositions $P,Q$ is ``$(P)$ IF AND ONLY IF $(Q)$''. \pause
+	
+	We will denote the bi-conditional usually by ``$P\iff{}Q$''  or  ``$P$ iff $Q$'' instead. \pause
+	
+	It connects two propositions by adding by an bi-arrow.\pause
+
+	\begin{itemize}
+		\item	($ax^2+bx+c=0$ has solution) IF AND ONLY IF ($b^2-4ac\geq0$) .\pause
+		\item	($n$ is a composite) IF AND ONLY IF (NOT($n$ is prime)).\pause	
+		\item	(Two lines are parallel) IF AND ONLY IF (NOT(They meet at a point)). \pause
+	\end{itemize}
+	
+	We don't interpret the correctness of the above proposition, this is discussed in next section. \pause
+
+	Indeed, if you consider the correctness, not all of them are always true.
+\end{slide}
+
+\section{Boolean value}
+\begin{slide}{Truth value}
+	Truth value are a value, either ``\emph{false}'' or ``\emph{true}'', associated to each proposition. \pause
+	
+	The association of the value must obey the following laws: \pause
+	
+	\begin{enumerate}
+		\item 	Each proposition has ONE value each time.
+		\item 	Every propositions constructed by propositional operators will have a corresponding value.
+	\end{enumerate}
+	
+	\pause
+	
+	\begin{def*}
+		A proposition that is always having the truth value ``true'' is called a \emph{tautology}.
+		
+		A proposition that is always having the truth value ``false'' is called a \emph{contradiction}.
+	\end{def*}	
+
+	\pause
+
+	To demonstrate the first law,
+
+	for example, using our common sense to associate the truth value to the following:
+	\begin{itemize}
+		\item	$1+1$ is equal to $2$. \pause (Tautology) \pause
+		\item	The Earth is a square. \pause (Contradiction) \pause
+		\item	Today is hot. \pause (Just a proposition) \pause
+	\end{itemize}
+
+\end{slide}
+\begin{slide}{Boolean operations - NOT}
+	Suppose $P$ is a proposition and it has a truth value. \pause
+	
+	Are the truth value of $P$ and $\sim{}P$ related? \pause
+	
+	\medskip{}
+	
+	The second law state that they are related according to some rules, which is given as follow. \pause
+	
+	\medskip{}
+	
+	\begin{tabular}{|c|c|}
+		\hline $P$ & $\sim{}P$ \\ 
+		\hline true & false \\ 
+		\hline false & true \\ 
+		\hline 
+	\end{tabular} 
+
+	\medskip{}
+	
+	\pause
+	
+	That means, whenever $P$ is associated with a value ``true'' , $\sim{}P$ must have the value ``false''. \pause
+	
+	And whenever $P$ is associated with a value ``false'' , $\sim{}P$ must have the value ``true''. \pause
+\end{slide}
+\begin{slide}{Boolean operations - AND}
+	Suppose $P$ and $Q$ are propositions and have truth value. \pause
+
+	Similarly, the truth value of ``$P$ and $Q$'' are related by the following table. \pause 
+
+	\medskip{}
+	
+	\medskip{}
+	
+	\begin{tabular}{|c|c|c|}
+		\hline $P$ &  $Q$ & $P$ and $Q$ \\ 
+		\hline true & true & true \\ 
+		\hline true & false & false \\ 
+		\hline false & true & false \\ 		
+		\hline false & false & false \\ 				
+		\hline 
+	\end{tabular} 
+	
+	\medskip{}
+	
+	\pause
+	
+	To interpret the table, it is equal to ask whether both propositions are true.
+\end{slide}
+\begin{slide}{Boolean operations - OR}
+	Suppose $P$ and $Q$ are propositions and have truth value. \pause
+	
+	Similarly, the truth value of ``$P$ or $Q$'' are related by the following table. \pause
+	
+	\medskip{}
+	
+	\medskip{}
+	
+	\begin{tabular}{|c|c|c|}
+		\hline $P$ &  $Q$ & $P$ or $Q$ \\ 
+		\hline true & true & true \\ 
+		\hline true & false & true \\ 
+		\hline false & true & true \\ 		
+		\hline false & false & false \\ 				
+		\hline 
+	\end{tabular} 
+	
+	\medskip{}
+	
+	\pause
+	
+	To interpret the table, it is equal to ask whether at least one of the propositions is true.
+\end{slide}
+\begin{slide}{Boolean operations - IF-THEN}
+	Suppose $P$ and $Q$ are propositions and have truth value. \pause
+	
+	Similarly, the truth value of ``$P\implies{}Q$'' are related by the following table. \pause
+	
+	\medskip{}
+	
+	\medskip{}
+	
+	\begin{tabular}{|c|c|c|}
+		\hline $P$ &  $Q$ & $P\implies{}Q$ \\ 
+		\hline true & true & true \\ 
+		\hline true & false & false \\ 
+		\hline false & true & true \\ 		
+		\hline false & false & true \\ 				
+		\hline 
+	\end{tabular} 
+	
+	\medskip{}
+	
+	\pause
+	
+	It is difficult at first to accept this table. \pause
+	
+	\medskip{}
+	
+	For example, 
+	
+	the proposition ``IF (The earth is a square) THEN ($1+1=3$)'' has a value ``true''. \pause
+	
+	The correct interpretation is that 
+	
+	``whether one can determine the statement is honest or not and if so, is it honest?'' \pause
+	
+	One can determine a people is lying only when the condition holds, 
+	
+	otherwise we can say that is a joke rather than a lie.
+\end{slide}
+\begin{slide}{Boolean operations - IF-AND-ONLY-IF}
+	Suppose $P$ and $Q$ are propositions and have truth value. \pause
+	
+	The truth value of ``$P\iff{}Q$'' are related by the following table. \pause
+	
+	\medskip{}
+	
+	\medskip{}
+	
+	\begin{tabular}{|c|c|c|}
+		\hline $P$ &  $Q$ & $P\iff{}Q$ \\ 
+		\hline true & true & true \\ 
+		\hline true & false & false \\ 
+		\hline false & true & false \\ 		
+		\hline false & false & true \\ 				
+		\hline 
+	\end{tabular} 
+	
+	\medskip{}
+	
+	\pause
+	
+	The bi-condition is true only when both propositions have the same truth value.  \pause
+	
+	\begin{def*}
+		Let $P$ and $Q$ be two propositions,
+		
+		$P$ and $Q$ are \emph{\textbf{logically equivalent}} if $P\iff{}Q$.
+	\end{def*}
+	
+	\pause
+	
+	The equivalence is in a sense that 
+	
+	by merely looking at the truth value of two propositions, we cannot distinguish them. \pause
+	
+	So, that means the two propositions are logically the same.
+	
+	\begin{thm*}
+		Let $P_1$ and $P_2$ be two propositions,
+		
+		and $P_1:=$''$P\iff Q$'' , $P_2:=$''$(P\implies{}Q)$ and $(Q\implies{}Q)$''.
+		
+		$P_1$ and $P_2$ are logically equivalent.
+	\end{thm*}
+	
+\end{slide}
+\begin{slide}{Boolean Algebra}
+	Let $P$, $Q$ and $R$ be propositions, $\mathcal{T}$ be a tautology and $\mathcal{F}$ be a contradiction.
+	
+	Prove that the following pairs are equivalent:
+	
+	\medskip
+	
+	\twocolumn[]{
+		$\sim{}\mathcal{T}$
+		
+		$\sim{}\mathcal{F}$
+		
+		$\sim{}\sim{}P$	
+		
+		$P$ and $\sim{}P$
+		
+		$P$ or $\sim{}P$
+		
+		$\sim{}(P\, \mbox{and}\, Q)$
+		
+		$\sim{}(P\, \mbox{or}\, Q)$		
+		
+		($P$ and $Q$) and ($R$) 
+		
+		($P$ or $Q$) or ($R$)
+		
+		($P$ and $Q$) or ($R$)
+		
+		($P$ or $Q$) and ($R$)
+		
+		($P$ or $Q$) and ($P$)
+		
+		($P$ and $Q$) or ($P$)		
+		
+	}{
+		$\mathcal{F}$
+		
+		$\mathcal{T}$
+	
+		$P$
+		
+		$\mathcal{F}$
+		
+		$\mathcal{T}$
+		
+		$\sim{}P$ or $\sim{}Q$
+		
+		$\sim{}P$ and $\sim{}Q$		
+		
+		($P$) and ($Q$ and $R$) 		
+		
+		($P$) or ($Q$ or $R$) 				
+		
+		($P$ or $R$) and ($Q$ or $R$)				
+		
+		($P$ and $R$) or ($Q$ and $R$)				
+		
+		$P$
+		
+		$P$
+	}
+	
+\end{slide}
+
+\begin{slide}{Example}
+	Let $Q$ and $R$ be propositions, \pause
+	
+		$P_1$ be the proposition that ``$Q\implies{}R$'', \pause
+	
+		$P_2$ be the proposition that ``not $Q$ or $R$''. \pause
+	
+		$P_3$ be the proposition that ``(not $R$) $\implies$ (not $Q$)'' \pause 
+		
+	\begin{proof}
+		We first show that $P_1\iff{}P_2$ is true by computing all cases.
+		
+		\begin{tabular}{|c|c|c|c|c|c|}
+		\hline $Q$ & $R$ & $\sim{}Q$ & $Q\implies{}R$ & $\sim{}Q$ or $R$ & $P_1\iff{}P_2$ \pause \\ 
+		\hline true & true & false & true & true & true\pause \\ 
+		\hline true & false & false & false & false & true\pause \\ 
+		\hline false & true & true & true & true & true\pause \\ 
+		\hline false & false & true & true & true & true\pause \\ 
+		\hline 
+		\end{tabular} 
+		
+		\medskip
+		
+		\pause
+		
+		Next, we show that $P_2\iff P_3$ as follow:
+		
+		$P_3=\sim R\implies \sim Q \iff \sim(\sim R) \mbox{ or} \sim Q$
+		
+		the proposition $\sim(\sim R) \mbox{ or} Q \iff R \mbox{ or} \sim Q = P_2$ 
+	\end{proof}		
+		
+\end{slide}
+
+\begin{slide}{Example}
+	Let $P$ be the proposition that ``$n$ is a five-digit square integer whose digits are all $2$ and $9$'',
+	
+	$Q$ be the proposition that ``$n$ is $29929$.''
+	
+	The above two are equivalent.\pause 
+	
+	\begin{proof}
+		Show that $P\implies{}Q$  and  $Q\implies{}P$.
+		
+		$Q\implies{}P$: Check that $29929=173^2$.
+		
+		$P\implies{}Q$: Read lecture 1.
+	\end{proof}		
+	
+\end{slide}	
+
+\section{Second Order Propositions}
+\begin{slide}{Propositional variables}
+	A proposition may be depend on variable(s). \pause
+	
+	For example, we let $P(n)$ be the proposition that ``$n$ is a prime number.''. \pause
+	
+	Then we have infinitely many propositions depends on $n$, say \pause
+	\begin{itemize}
+		\item	$P(6)$ is the proposition ``$6$ is a prime number'' .\pause
+		\item	$P(11)$ is the proposition ``$11$ is a prime number'' .\pause
+		\item	$P(123)$ is the proposition ``$123$ is a prime number'' .\pause
+		\item   ... \pause
+	\end{itemize}
+	
+	Let $Q(x,y)$ be the proposition that ``$x$ is smaller than $y$'' \footnote{The values of a variable need not be a number.} \pause
+
+	For example, $Q(\mbox{John},\mbox{Mary})$ is the proposition that ``John is smaller than Mary''. \pause
+	
+	$Q(2,3)$ is the proposition that ``2 is smaller than 3''. \pause
+	
+\end{slide}
+\begin{slide}{Existential quantifier - THERE EXISTS}
+	As like what we did for those first order logical connectives, \pause
+	
+	we can construct new proposition by using second order logical connectives. \pause
+	
+	Let $P(n)$ be the proposition that ``$n$ is a prime number.''. \pause 
+	
+	We can create a new proposition that ``There is an integer $k$ such that $P(k)$''.  \pause 
+	
+	It is denoted by ``$\exists k (P(k))$''. \pause
+	
+	However, to avoid so many parentheses, it is usually denoted as ``$\exists k, \, P(k)$''.
+	
+	Its truth values depends on all the proposition $P(n)$,  \pause 
+	
+	it is true if there is at least one proposition having the value ``true''. \pause 
+	
+	Since $P(2)$ is true, ``$\exists k, \, P(k)$'' is true. \pause
+
+	Simply because there is such an integer.
+	
+\end{slide}
+\begin{slide}{Universial quantifier - FOR ALL}
+	Let $P(n)$ be the proposition that ``$n$ is a prime number.''. \pause 
+	
+	We can create a new proposition that ``Every integer $k$ such that $P(k)$''.  \pause 
+	
+	It is denoted by ``$\forall k (P(k))$''. \pause 
+	
+	However, to avoid so many parentheses, it is usually denoted as ``$\forall k, \, P(k)$''.	
+	
+	Its truth values depends on all the proposition $P(n)$,  \pause 
+	
+	it is true if all propositions are having the value ``true''. \pause
+	
+	As $P(4)$ is false, ``$\forall k, \, P(k)$'' is false. \pause
+	
+	Simply because not all of them are ``true''.
+
+\end{slide}
+\begin{slide}[toc=]{}
+	\begin{thm*}
+		The following are true:
+		
+		``not($\forall x, P(x)$) $\iff$ $\exists x, \mbox{not} P(x)$''\footnote{Not every proposition are true means that at least one of them is false.}
+		
+		``not($\exists x, P(x)$) $\iff$ $\forall x, \mbox{not} P(x)$''\footnote{Not having at least one true means that all of them are false.}
+	\end{thm*}
+	
+	\pause
+
+	Question: \pause
+	
+	Can we interchange the operators FOR ALL and THERE EXISTS? 
+	
+	i.e. Are the two proposition  ``$\forall x,\exists y, Q(x,y)$'' , ``$\exists y, \forall x, Q(x,y)$''  the same? \pause
+	
+	Hints: Let $Q(x,y)$ be the proposition that ``$x$ is smaller than $y$''. \pause 
+	
+	``$\forall x,\exists y, Q(x,y)$'' means 
+	
+	for every number $x$, there is an number $y$ such that $x<y$. \pause
+	
+	i.e. For each given number, there is a larger number. \pause
+	
+	``$\exists y, \forall x, Q(x,y)$'' means
+	
+	there is an number $y$ such that every number $x$ is smaller than $y$.
+	
+\end{slide}
+\section{Recursive definition}
+
+\begin{slide}{Quick introduction}
+	a \textbf{recursive definition} (or \textbf{inductive definition}) is used to define an object in terms of itself\footnote{P. Aczel (1977), "An introduction to inductive definitions", Handbook of Mathematical Logic, J. Barwise (ed.)}.
+
+	For example,
+	
+	let $a_n$ be numbers defined as follows:
+	\begin{enumerate}
+		\item	$a_0=1$
+		\item 	$a_{n}=n\cdot a_{n-1}$ , for $n>0$
+	\end{enumerate}
+	
+	To find $a_6$, we put $n=6$ and use the second one, $a_6=6\cdot{}a_5$ and so on... \pause
+	
+	until we arrive at $a_0$ which is a known value and we therefore know $a_6=720$. \pause
+	
+	\medskip{}
+	
+	\begin{def*}
+		The  \emph{\textbf{$n$-th factorial}}, $n!$, is defined as the value of $a_n$ as above.
+	\end{def*}
+	
+	\pause
+	
+	Recursive definition is something like about as long as the objects involved are well-defined. \pause
+	
+\end{slide}
+
+\begin{slide}{Polynomial evaluation}
+	Let $f$ be a polynomial and $f(x)=3x^5 + 2x^3 + 5x - 7$. \pause
+	
+	To find $f(2)$, we usually compute $3\cdot 2^5 , 2\cdot x^3, \cdots $ and add them together. \pause
+
+	Here is a better method for find the value $f(2)$. \pause
+	
+	\medskip
+	
+	Define $a_n$ be the coefficient of $x^n$ of $f(x)$,
+	
+	i.e.  $a_0 = -7 , a_1 = 5 , a_2 = 0 , a_3 = 2 , a_4 = 0 , a_5 = 3$
+	
+	let $x_n$ be numbers defined as follows:
+	\begin{enumerate}
+		\item	$x_0=a_5$
+		\item 	$x_{n}=2\cdot x_{n-1} + a_{5-n}$ , for $5\geq n>0$
+	\end{enumerate}
+
+	\medskip
+	
+	The value of $f(2)$ is exactly $x_5$. \pause
+	
+	
+	
+	What are the other numbers $x_0 , \cdots , x_4$ used for? \pause
+	
+	Try to divide $f(x)$ by $(x-2)$ using polynomial long division. \pause
+	
+	
+	
+	If we let $b_n = x_{4-n}$ for $0\leq n \leq 4$, then the polynomial $Q(x) = b_0 + b_1 x + b_2 x^2 + b_3 x^3 + b_4 x^4$ is exactly the quotient.	
+		
+	Recursive definition is something like about as long as the objects involved are well-defined. \pause
+	
+\end{slide}
+\begin{slide}[toc=]{Polynomial evaluation}
+	\polylongdiv{3x^5 + 2x^3 + 5x - 7}{x-2}
+\end{slide}
+\begin{slide}[toc=]{Synthetic substitution}
+	Read the Extra Material
+\end{slide}
+\section{Grammar in C}
+\begin{slide}{English Grammar}
+	For those who study linguistic, they view the grammar of English systematically.
+
+	\begin{itemize}
+		\item 	Each passage consists of a title, author and a sequence of paragraphs  \pause 
+		\item 	Each paragraph is a sequence of sentences  \pause 		
+		\item	Every sentence end with a full-stop (.) or an exclamation mark (!). \pause
+		\item	\mbox{<sentence> $::=$ <subject> <verb> [<object>]} \footnote{Every sentence consists of a subject and a verb, object is optional} \pause
+		\item	Every subject is a noun-phrase, verb-phrase etc. \pause
+		\item 	Every noun-pharse are consists of a smaller noun-phrase, noun, relative pronoun etc. \pause
+		\item 	Every noun are vocabulary. \pause
+		\item	Every vocabulary is consisting of correctly spelled character sequences. \pause
+		\item	A character sequence is consists of characters \pause
+		\item 	Each character is from 'a' to 'z' or 'A' to 'Z' \pause
 	\end{itemize}
 \end{slide}
 
+\begin{slide}{C Grammar - BNF Grammar}
+	An analogue linguistic structure for programming language C also exists.
+	
+	\begin{itemize}
+		\item	Each program consists of pre-processor directives and functions\footnote{A part to tell the computer to store action.} \pause
+		\item	Each function consists of statements. \pause
+		\item	Every statements ends with a semi-colon (;). \pause
+		\item	Every statement is either a control flow , variable declaration or expression. \pause
+		\item	expression can be arithmetic expression, logical expression etc. \pause
+		\item	arithmetic expression consists consists of addition, subtraction etc. \pause
+		\item	\mbox{<addition>$::=$<Arithmetic Operand 1> '+' <Arithmetic 2>} \pause
+		\item	Arithmetic Operand can be function values, variables names or numbers. \pause
+		\item	numbers can be integers or real numbers. \pause
+		\item	\mbox{<integers>$::=$ [0-9]+}, i.e. at least one of any one of '0','1', $\cdots$, '9' \pause
+	\end{itemize}
+\end{slide}
+
+\begin{slide}{Arithmetic Expression}
+	We learnt the way to convert usual mathematical expression into C language. \pause
+	
+	However, how could we tell the computer to do the following two different action? \pause
+	
+	\medskip{}
+	
+	\twocolumn[]{
+		$3\div{}2$ 
+		
+		$3\div{}2$		
+	}{
+		Quotient: 1  \pause
+		
+		Real division: 1.5 \pause
+	}
+	
+	\pause
+
+	Even ourselves cannot distinguish the two different division without further explanation.\pause
+	
+	Computer will use the following rules to distinguish the two different division.\pause
+	
+	\medskip{}
+	
+	\begin{enumerate}
+		\item	If every operands are computer-integers, it perform the quotient division.\footnote{Computer like doing discrete mathematics too!} \pause
+		\item	If any one of the operand is not a computer-integer, it will switch to real division. \pause
+	\end{enumerate}
+	
+	\medskip{}
+
+	Computer-integers means that the number is ``written in a form''
+	
+	so that the computer treat it as an integer. \pause
+	
+	For example, we can say $2.3$ is not a whole number due to the decimal place.
+	
+\end{slide}
+
+\begin{slide}{Regular Expression}
+	To specify clear what we mean by ``written in a form'', we need \textbf{Regular Expression}. \pause
+
+	It is a tool used for string matching. \pause
+	
+	For example, \pause
+	
+	\begin{itemize}
+		\item[\mbox{[0-9]}]  matches any one of the character '0','1',$\cdots$,'9' \pause
+		\item[\mbox{[0-9]+}] matches any string that is consists of at least one digit. \pause
+		\item[\mbox{a*bc}] matches any string that is end with ``bc'' and start with any number of ``a'. \pause
+		\item[\mbox{[\textasciicircum{}a-z]}] matches any character that is not one of 'a','b',$\cdots$,'z'. \pause
+		\item[\mbox{ak4|bb10}] matches any one of the string ``ak4'' or ``bb10''. \pause
+		\item[\mbox{(ab)|(kaab)}] matches any one of the string ``ab'' or ``kaab''\footnote{The parentheses here is used for grouping}. \pause
+		\item[\mbox{(a|b)+}] matches any string that is consists of 'a' and 'b' and is non-empty. \pause
+		\item[\mbox{a|b+}] matches any string ``a'' , ``b'' , ``bb'', ``bbb'' , $\cdots$. \pause
+		\item[\mbox{(\textbackslash{}+|\textbackslash{}-)?}] matches any string ``+'' , ``-'' or $\epsilon$-string , $\cdots$. \pause		
+	\end{itemize}
+\end{slide}
+
+\begin{slide}{Computer Integers and Real numbers}
+	Although we won't distinguish usually between $2.5$ and $3$, there are just number. \pause
+	
+	Computer would like to do so. \pause
+	
+	It only knows whole number. \pause
+	
+	\medskip{}
+	
+	Computer integer is of the form (\textbackslash{}+|\textbackslash{}-)?[0-9]+ \pause
+	
+	Therefore, it will treat $3/2$ to be $1$. \pause
+	
+	\medskip{}
+	
+	For simplicity, we denote [DIGIT] to be [0-9] and [INT] to be [DIGIT]+ \pause
+	
+	Computer treats other numbers to be computer-real number, it can be ``-2.3'' , ``2.0'', ``1E+12''\footnote{Scientific notation $1\times{}10^{12}$.}. \pause
+	
+	Let [SIGN] $::=$ (\textbackslash{}+|\textbackslash{}-), \pause
+	
+	Computer real number is of the form [SIGN]?[DIGIT]*''.''[DIGIT]+((e|E)[SIGN]?[INT])  or [SIGN]?[DIGIT]+(e|E)[SIGN]?[INT]. \pause
+	
+	\medskip{}	
+	
+	Therefore, it will treat $3/2.0$ to be $1.5$ , $3.0/2$ to be $1.5$ and $3.0/2.0$ to be $1.5$. \pause
+\end{slide}
 \section{End}
 \end{document}

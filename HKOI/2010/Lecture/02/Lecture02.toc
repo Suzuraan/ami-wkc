@@ -1,5 +1,33 @@
 \pdcontentsline{1}{2}{Lecture 02}
-\pdcontentsline{1}{3}{Propositional Logic}
+\pdcontentsline{1}{3}{First Order Propositions}
 \pdcontentsline{0}{4}{Proposition / Statement}
 \pdcontentsline{0}{6}{Proposition operators}
-\pdcontentsline{1}{7}{End}
+\pdcontentsline{0}{7}{Negation - NOT}
+\pdcontentsline{0}{8}{Conjunction - AND}
+\pdcontentsline{0}{9}{Disjunction - OR}
+\pdcontentsline{0}{10}{Implication - IF-THEN}
+\pdcontentsline{0}{11}{Biconditional}
+\pdcontentsline{1}{12}{Boolean value}
+\pdcontentsline{0}{13}{Truth value}
+\pdcontentsline{0}{14}{Boolean operations - NOT}
+\pdcontentsline{0}{15}{Boolean operations - AND}
+\pdcontentsline{0}{16}{Boolean operations - OR}
+\pdcontentsline{0}{17}{Boolean operations - IF-THEN}
+\pdcontentsline{0}{18}{Boolean operations - IF-AND-ONLY-IF}
+\pdcontentsline{0}{19}{Boolean Algebra}
+\pdcontentsline{0}{20}{Example}
+\pdcontentsline{0}{21}{Example}
+\pdcontentsline{1}{22}{Second Order Propositions}
+\pdcontentsline{0}{23}{Propositional variables}
+\pdcontentsline{0}{24}{Existential quantifier - THERE EXISTS}
+\pdcontentsline{0}{25}{Universial quantifier - FOR ALL}
+\pdcontentsline{1}{27}{Recursive definition}
+\pdcontentsline{0}{28}{Quick introduction}
+\pdcontentsline{0}{29}{Polynomial evaluation}
+\pdcontentsline{1}{32}{Grammar in C}
+\pdcontentsline{0}{33}{English Grammar}
+\pdcontentsline{0}{34}{C Grammar - BNF Grammar}
+\pdcontentsline{0}{35}{Arithmetic Expression}
+\pdcontentsline{0}{36}{Regular Expression}
+\pdcontentsline{0}{37}{Computer Integers and Real numbers}
+\pdcontentsline{1}{38}{End}
