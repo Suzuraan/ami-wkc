@@ -587,7 +587,7 @@ Rewrite the following mathematical expression in C's expression.
 \paragraph_spacing double
 
 \emph on
-Don't not simplify any one of them.
+Do not simplify any one of them.
 \end_layout
 
 \begin_layout Standard
