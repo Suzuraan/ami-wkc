@@ -1,0 +1,262 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\input{euclid_input.tex}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 5pheight%
+\rightmargin 2cm
+\bottommargin 4pheight%
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Euclidean algorithm
+\end_layout
+
+\begin_layout Standard
+Here, all the unknowns are assumed to be integers.
+\end_layout
+
+\begin_layout Example
+Finding integers solutions to 
+\begin_inset Formula $123x+9y=3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+doEuclideanAlgorithm{123}{9}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To understand the euclidean algorithm for finding a parituclar solution.
+\end_layout
+
+\begin_layout Standard
+First, we have 
+\begin_inset Formula $123=9\left(13\right)+6\iff123\left(1\right)+9\left(-13\right)=6$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the second formulae, 
+\begin_inset Formula $9=6\left(1\right)+3\iff9\left(1\right)-6\left(1\right)=3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+i.e.
+ 
+\begin_inset Formula $9\left(1\right)-\left(123\left(1\right)+9\left(-13\right)\right)\left(1\right)=3\iff123\left(-1\right)+9\left(14\right)=3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Through this, you should know the new 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+ are obtained by 
+\begin_inset Formula $x_{k-2}-q_{k}x_{k-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{k-2}-q_{k}y_{k-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+Remember that, we always read the last but one row to find a solution.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Example
+Find all integers 
+\begin_inset Formula $x$
+\end_inset
+
+ such that 
+\begin_inset Formula $7x\bmod13=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+The remainder is 
+\begin_inset Formula $1$
+\end_inset
+
+ means that 
+\begin_inset Formula $7x$
+\end_inset
+
+ is the sum a multiple of 
+\begin_inset Formula $13$
+\end_inset
+
+ and 
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Mathematically, this is equivalent to 
+\begin_inset Formula $7x=13m+1$
+\end_inset
+
+ for some 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Rewrite it into
+\begin_inset Formula $7x-13m=1$
+\end_inset
+
+ and let 
+\begin_inset Formula $y=-m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+It becomes 
+\begin_inset Formula $7x+13y=1$
+\end_inset
+
+ and should have infinitely many solutions.
+\end_layout
+
+\begin_layout Proof
+Finally, using the euclidean algorithm, 
+\end_layout
+
+\begin_layout Proof
+\paragraph_spacing onehalf
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+doEuclideanAlgorithm{13}{7}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+we find 
+\begin_inset Formula $x_{0}=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\paragraph_spacing double
+Hence, all the integers 
+\begin_inset Formula $x$
+\end_inset
+
+ are of the form 
+\begin_inset Formula $2+13k$
+\end_inset
+
+ where 
+\begin_inset Formula $k$
+\end_inset
+
+ is any integers.
+\end_layout
+
+\end_body
+\end_document
