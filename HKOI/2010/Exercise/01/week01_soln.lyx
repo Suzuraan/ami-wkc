@@ -4,6 +4,9 @@
 \begin_header
 \textclass amsart
 \begin_preamble
+\usepackage{etex}
+\reserveinserts{28}
+
 \usepackage{pictex}
 \end_preamble
 \use_default_options true
@@ -58,10 +61,6 @@ figs-within-sections
 Week 1 Exercise Solution
 \end_layout
 
-\begin_layout Section
-Another proof of pythagoras theorem and Pythagorean mean
-\end_layout
-
 \begin_layout Problem
 \begin_inset CommandInset label
 LatexCommand label
@@ -82,13 +81,13 @@ In the following diagram,
 
 \begin_layout Problem
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-input{pic/q1.tex}
+input{pic/q1_1.tex}
 \end_layout
 
 \end_inset
@@ -238,13 +237,6 @@ Therefore,
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage clearpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Problem
 Point 
 \begin_inset Formula $D$
@@ -277,7 +269,7 @@ status collapsed
 
 
 \backslash
-input{pic/q3.tex}
+input{pic/q3_1.tex}
 \end_layout
 
 \end_inset
@@ -317,14 +309,6 @@ Find
 .
 \end_layout
 
-\begin_layout Enumerate
-Prove the pythagoras theorem by considering 
-\begin_inset Formula $\triangle ODC$
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Proof
 \begin_inset Formula $OC=\frac{a+b}{2}$
 \end_inset
@@ -336,20 +320,54 @@ Prove the pythagoras theorem by considering
 .
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
 
 \end_layout
 
-\begin_layout Proof
+\begin_layout Theorem*
 \begin_inset OptArg
 status collapsed
 
 \begin_layout Plain Layout
-Proof of Pythagoras Theorem
+Pythagoras
 \end_layout
 
 \end_inset
 
+ Let 
+\begin_inset Formula $\triangle ODC$
+\end_inset
+
+ be with sides 
+\begin_inset Formula $OD=a,DC=b,OC=c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem*
+\begin_inset Formula $\angle ODC$
+\end_inset
+
+ is a right triangle if and only if 
+\begin_inset Formula $a^{2}+b^{2}=c^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We proved the 
+\begin_inset Formula $\implies)$
+\end_inset
+
+ direction first.
+\end_layout
+
+\begin_layout Proof
 For each given right triangle 
 \begin_inset Formula $\triangle ODC$
 \end_inset
@@ -467,10 +485,250 @@ On the other hand,
 
 .
  Hence 
-\begin_inset Formula $b=\sqrt{c^{2}-a^{2}}\iff a^{2}+b^{2}=c^{2}$
+\begin_inset Formula $b=\sqrt{c^{2}-a^{2}}\implies a^{2}+b^{2}=c^{2}$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Proof
+Conversely, 
+\begin_inset Formula $\Longleftarrow)$
+\end_inset
+
+ , if 
+\begin_inset Formula $a^{2}+b^{2}=c^{2}$
+\end_inset
+
+, assume 
+\begin_inset Formula $\angle ODC$
+\end_inset
+
+ is not a right angle, it can either be an acute or obtuse angle.
+\end_layout
+
+\begin_layout Proof
+We still proceed by drawing the semi-circle which contains the triangle
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ still lies on 
+\begin_inset Formula $AB$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Here, we use the 
+\series bold
+method of false position
+\series default
+.
+ Assume 
+\begin_inset Formula $D$
+\end_inset
+
+ is at a false position.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $D'$
+\end_inset
+
+ be the foot of perpendicular of 
+\begin_inset Formula $C$
+\end_inset
+
+ to 
+\begin_inset Formula $AB$
+\end_inset
+
+, which is the true position.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q3_soln2_1.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q3_soln2_2.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We shall prove that 
+\begin_inset Formula $D$
+\end_inset
+
+ and 
+\begin_inset Formula $D'$
+\end_inset
+
+ must be the same point by considering 
+\begin_inset Formula $d=DD'$
+\end_inset
+
+ be their distance.
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+If 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $\angle ODC$
+\end_inset
+
+ is acute,
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+ 
+\begin_inset Formula $OD'^{2}=a-d$
+\end_inset
+
+.
+ Otherwise, 
+\begin_inset Formula $OD'^{2}=a+d$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $\triangle OD'C$
+\end_inset
+
+ is a right triangle, we have 
+\begin_inset Formula $CD'^{2}=OC^{2}-OD'^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\therefore CD'^{2}=c^{2}-\left(a\pm d\right)^{2}=c^{2}-a^{2}\pm2ad-d^{2}=b^{2}\pm2ad-d^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+On the other hand, 
+\begin_inset Formula $\triangle CD'D$
+\end_inset
+
+ is also a right triangle, hence 
+\begin_inset Formula $CD'^{2}+DD'^{2}=CD^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\therefore\left(b^{2}\pm2ad-d^{2}\right)+\left(d^{2}\right)=b^{2}\iff\pm2ad=0\implies d=0$
+\end_inset
+
+, since 
+\begin_inset Formula $a>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Therefore, 
+\begin_inset Formula $DD'=0$
+\end_inset
+
+ which means they must be the same point.
+\end_layout
+
+\begin_layout Proof
+Hence, 
+\begin_inset Formula $\triangle ODC=\triangle OD'C$
+\end_inset
+
+ is a right triangle.
 \end_layout
 
 \begin_layout Standard
@@ -593,7 +851,7 @@ Using the pythagoras theorem,
 .
 \end_layout
 
-\begin_layout Section
+\begin_layout Section*
 \paragraph_spacing double
 C's Syntax
 \end_layout
