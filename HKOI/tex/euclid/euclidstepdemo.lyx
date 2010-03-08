@@ -1,0 +1,92 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\usepackage{forloop}
+\usepackage{calc}
+\usepackage{ifthen}
+\input{euclidstep_input.tex}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 5pheight%
+\rightmargin 2cm
+\bottommargin 4pheight%
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcounter{idenK}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+forloop{idenK}{2}{
+\backslash
+value{idenK}<6}{
+\backslash
+doEuclideanAlgorithm{123}{9}{
+\backslash
+value{idenK}}
+\backslash
+newpage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
