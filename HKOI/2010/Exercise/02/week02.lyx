@@ -1543,6 +1543,18 @@ The
 .
 \end_layout
 
+\begin_layout Remark*
+You can quickly find 
+\begin_inset Formula $\gcd\left(m,n\right)$
+\end_inset
+
+ by computing 
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ only.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage clearpage
 \end_inset
@@ -2046,7 +2058,7 @@ gr(a|e)y
 \begin_inset Text
 
 \begin_layout Plain Layout
-matches "gray"
+matches "gray" or "grey"
 \end_layout
 
 \end_inset
