@@ -34,7 +34,7 @@
 	\maketitle
 	\lyxend\section{Euclidean algorithm}
 	
-\begin{slide}{Finding integer solutions}
+\begin{slide}[toc=Finding integer solutions]{Finding integer solutions for $\gcd$}
 	Finding integers solutions to $123 x+9y=3$.	\pause
 	
 	\begin{rem*}
@@ -62,6 +62,32 @@
 		Remember that, we always read the last but one row to find a solution.
 	\end{rem*}
 \end{slide}
+
+\begin{slide}[toc=]{Finding integer solutions for any integer}
+	Finding integers solutions to $12 x + 5 y = 3$.	\pause
+	
+	\begin{onehalfspace}
+		\doEuclideanAlgorithm{12}{5}
+	\end{onehalfspace}
+
+	\pause
+	
+	\begin{doublespace}
+	
+	This time, we let $m=12$ and $n=5$.	
+	
+	First, we have $m=n\left(2\right)+2\iff m\left(1\right)+n\left(-2\right)=2$	\pause
+	
+	From the second formulae, $n=2\left(2\right)+1\iff n\left(1\right)-2\left(2\right)=1$	\pause
+	
+	i.e. $n\left(1\right)-\left(m\left(1\right)+n\left(-2\right)\right)\left(2\right)=1\iff m\left(-2\right)+n\left(5\right)=1$	\pause
+	
+	Hence, $3\left(m\left(-2\right)+n\left(5\right)\right)=3\iff m\left(-6\right)+n\left(15\right)=3$ \pause
+	
+	$\left(x,y\right)=\left(-6,15\right)$ is a solution.
+	\end{doublespace}
+\end{slide}
+
 \begin{slide}{Solving modulus equation}
 	Find all integers $x$ such that $7x\bmod13=1$.	\pause
 	
@@ -82,7 +108,7 @@
 			\doEuclideanAlgorithm{13}{7}
 		\end{onehalfspace}
 		
-		we find $x_{0}=2$.	\pause
+		we find $x=2$ is one of the solution.	\pause
 		
 		\begin{doublespace}
 			Hence, all the integers $x$ are of the form $2+13k$ where $k$ is
