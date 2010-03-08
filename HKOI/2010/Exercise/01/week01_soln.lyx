@@ -1,0 +1,703 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass amsart
+\begin_preamble
+\usepackage{pictex}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing double
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 5pheight%
+\rightmargin 2cm
+\bottommargin 4pheight%
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Week 1 Exercise Solution
+\end_layout
+
+\begin_layout Section
+Another proof of pythagoras theorem and Pythagorean mean
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "pro:Problem1"
+
+\end_inset
+
+In the following diagram, 
+\begin_inset Formula $AD=a,DB=b$
+\end_inset
+
+ and 
+\begin_inset Formula $CD=h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q1.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Show that 
+\begin_inset Formula $\triangle ACD\sim\triangle CDB$
+\end_inset
+
+ and 
+\begin_inset Formula $h=\sqrt{ab}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\angle DCB=x$
+\end_inset
+
+, we have 
+\begin_inset Formula $\angle DCA=90^{\circ}-x=\angle DBC$
+\end_inset
+
+ and 
+\begin_inset Formula $\angle DAC=x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Hence 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\triangle ACD\sim\triangle CDB$
+\end_inset
+
+ (AA)
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\dfrac{CD}{DB}=\dfrac{AC}{CD}\iff CD^{2}=AC\cdot DB\iff h^{2}=ab\iff h=\sqrt{ab}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "pro:Problem2"
+
+\end_inset
+
+In the following diagram, 
+\begin_inset Formula $AB$
+\end_inset
+
+ is the diameter, 
+\begin_inset Formula $C$
+\end_inset
+
+ is a point on the semi-circle and 
+\begin_inset Formula $O$
+\end_inset
+
+ is the center.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q2.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Show that 
+\begin_inset Formula $\angle ACB=90^{\circ}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Draw 
+\begin_inset Formula $OC$
+\end_inset
+
+ and let 
+\begin_inset Formula $\angle OCA=x,\angle OCB=y$
+\end_inset
+
+, so 
+\begin_inset Formula $\angle ACB=x+y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $OC=OA=OB$
+\end_inset
+
+, we have 
+\begin_inset Formula $\angle OAC=x$
+\end_inset
+
+ and 
+\begin_inset Formula $\angle OBC=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Therefore, 
+\begin_inset Formula $2x+2y=180^{\circ}\iff x+y=90^{\circ}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Point 
+\begin_inset Formula $D$
+\end_inset
+
+ is the foot of the perpendicular from 
+\begin_inset Formula $C$
+\end_inset
+
+ to 
+\begin_inset Formula $AB$
+\end_inset
+
+ and 
+\begin_inset Formula $AD=a$
+\end_inset
+
+ and 
+\begin_inset Formula $DB=b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q3.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+From the previous question, we have 
+\begin_inset Formula $\angle ACB=90^{\circ}$
+\end_inset
+
+ and hence 
+\begin_inset Formula $DC=\sqrt{ab}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Find 
+\begin_inset Formula $OC$
+\end_inset
+
+ and 
+\begin_inset Formula $OD$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Prove the pythagoras theorem by considering 
+\begin_inset Formula $\triangle ODC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $OC=\frac{a+b}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $OD=OA-DA=\frac{a+b}{2}-a=\frac{b-a}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+Proof of Pythagoras Theorem
+\end_layout
+
+\end_inset
+
+For each given right triangle 
+\begin_inset Formula $\triangle ODC$
+\end_inset
+
+ with sides 
+\begin_inset Formula $a,b$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Draw a circle with center 
+\begin_inset Formula $O$
+\end_inset
+
+ and 
+\begin_inset Formula $OC$
+\end_inset
+
+ as the radius.
+\end_layout
+
+\begin_layout Proof
+Extend the line 
+\begin_inset Formula $OD$
+\end_inset
+
+ to get the intersection points 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Consider only the semi-circle which contains the triangle 
+\begin_inset Formula $\triangle ODC$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q3_soln.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Then 
+\begin_inset Formula $AD=c-a$
+\end_inset
+
+ and 
+\begin_inset Formula $DB=AB-DA=2c-\left(c-a\right)=c+a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pro:Problem2"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $\angle ACB$
+\end_inset
+
+ is a right angle.
+\end_layout
+
+\begin_layout Proof
+Hence from problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pro:Problem1"
+
+\end_inset
+
+, we have 
+\begin_inset Formula $DC=\sqrt{DA\cdot DB}=\sqrt{\left(c-a\right)\left(c+a\right)}=\sqrt{c^{2}-a^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+On the other hand, 
+\begin_inset Formula $DC=b$
+\end_inset
+
+.
+ Hence 
+\begin_inset Formula $b=\sqrt{c^{2}-a^{2}}\iff a^{2}+b^{2}=c^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset OptArg
+status collapsed
+
+\begin_layout Plain Layout
+Construction of Pythagorean mean
+\end_layout
+
+\end_inset
+
+ In the diagram below, 
+\begin_inset Formula $AD=a$
+\end_inset
+
+ and 
+\begin_inset Formula $DB=b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $G$
+\end_inset
+
+ is the intersection of the the perpendicular bisector of 
+\begin_inset Formula $AB$
+\end_inset
+
+ and the semi-circle.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pic/q4.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Show that 
+\begin_inset Formula $\triangle CDO\sim\triangle CED$
+\end_inset
+
+ and 
+\begin_inset Formula ${\displaystyle CE=\frac{2ab}{a+b}=\frac{2}{\frac{1}{a}+\frac{1}{b}}}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Enumerate
+Draw the line segment 
+\begin_inset Formula $DG$
+\end_inset
+
+ and show that 
+\begin_inset Formula $DG=\sqrt{\frac{a^{2}+b^{2}}{2}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Using the same argument as in problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pro:Problem1"
+
+\end_inset
+
+, the two triangles are similar.
+\end_layout
+
+\begin_layout Proof
+Also, 
+\begin_inset Formula $\dfrac{CE}{CD}=\dfrac{CD}{CO}\iff CE=\dfrac{CD^{2}}{CO}=\dfrac{1}{OC}\cdot CD^{2}=\dfrac{2}{a+b}\left(\sqrt{ab}\right)^{2}=\dfrac{2ab}{a+b}=\dfrac{2}{\frac{1}{a}+\frac{1}{b}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $OD=\frac{b-a}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $OG=\frac{b+a}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Using the pythagoras theorem, 
+\begin_inset Formula $DG^{2}=OD^{2}+OG^{2}=\frac{a^{2}+b^{2}}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\paragraph_spacing double
+C's Syntax
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $x^{3}+y^{3}$
+\end_inset
+
+ = x*x*x+y*y*y
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\left(x+y\right)^{2}\left(x-y\right)$
+\end_inset
+
+ = (x+y)*(x+y)*(x-y)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\sqrt{\left(x-y\right)^{2}}$
+\end_inset
+
+ = sqrt((x-y)*(x-y))
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\begin_inset Formula $\left(\sqrt{x-y}\right)^{2}$
+\end_inset
+
+ = sqrt(x-y)*sqrt(x-y)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $a^{2}+2ab+b^{2}$
+\end_inset
+
+ = a*a+2*a*b+b*b
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\dfrac{x^{3}+y^{3}}{x+y}$
+\end_inset
+
+ = (x*x*x+y*y*y)/(x+y)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $x^{2}-xy+y^{2}$
+\end_inset
+
+ = x*x - x*y + y*y
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\paragraph_spacing double
+\begin_inset Formula $\left(\dfrac{x^{3}+y^{3}}{x+y}\right)^{2}$
+\end_inset
+
+ = (x*x*x+y*y*y)/(x+y) * (x*x*x+y*y*y)/(x+y)
+\end_layout
+
+\end_body
+\end_document
