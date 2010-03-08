@@ -2,7 +2,6 @@
 \usepackage{forloop}
 \usepackage{ifthen}
 
-\newcommand{\doEuclideanAlgorithm}[2]{
 \newcounter{flag}
 \newcounter{EuclidA} 
 \newcounter{EuclidB} 
@@ -15,6 +14,9 @@
 \newcounter{EuclidXTemp}
 \newcounter{EuclidYTemp}
 
+
+\newcommand{\doEuclideanAlgorithm}[2]{
+
 \setcounter{EuclidA}{#1}
 \setcounter{EuclidB}{#2}
 \setcounter{EuclidXA}{1}
@@ -26,22 +28,23 @@
 %\arabic{EuclidR}	&	\arabic{EuclidQ}	&	\arabic{EuclidXB}	&	\arabic{EuclidYB}	\\ \hline
 %\arabic{EuclidR}	\;	\arabic{EuclidQ}	\;	\arabic{EuclidXB}	\;	\arabic{EuclidYB}	\\
 	
-$$\begin{array}[t]{|c||c|c|c|c|} \hline
-	k	&	r_k					&	q_k	&	x_k	&	y_k	\\ \hline \hline
-	0	&	\arabic{EuclidA}	&		&	1	&	0	\\ \hline
-	1	&	\arabic{EuclidB}	&		&	0	&	1	\\ \hline	
+$$\begin{array}[t]{|c||c|c|c|c|c|} \hline
+	k	&	r_k					&	q_k	&	x_k	&	y_k	&	\mbox{Formulae}	\\ \hline \hline
+	0	&	\arabic{EuclidA}	&		&	1	&	0	&		\\ \hline
+	1	&	\arabic{EuclidB}	&		&	0	&	1	&		\\ \hline	
 	\forloop[1]{flag}{2}{\value{EuclidB} > 0}{
 		\setcounter{EuclidQ}{\value{EuclidA} / \value{EuclidB}} 
 		\setcounter{EuclidR}{\value{EuclidA} - \value{EuclidQ} * \value{EuclidB}}
-		\setcounter{EuclidA}{\value{EuclidB}}
-		\setcounter{EuclidB}{\value{EuclidR}}
 		\setcounter{EuclidXTemp}{\value{EuclidXA} - \value{EuclidXB} * \value{EuclidQ}}
 		\setcounter{EuclidYTemp}{\value{EuclidYA} - \value{EuclidYB} * \value{EuclidQ}}
+		\arabic{flag}	&	\arabic{EuclidR}	&	\arabic{EuclidQ}	&	\arabic{EuclidXTemp}	&	\arabic{EuclidYTemp}	&	\arabic{EuclidA}=\arabic{EuclidB}\cdot\arabic{EuclidQ}+\arabic{EuclidR}
+		\setcounter{EuclidA}{\value{EuclidB}}
+		\setcounter{EuclidB}{\value{EuclidR}}		
 		\setcounter{EuclidXA}{\value{EuclidXB}}
 		\setcounter{EuclidXB}{\value{EuclidXTemp}}		
 		\setcounter{EuclidYA}{\value{EuclidYB}}
-		\setcounter{EuclidYB}{\value{EuclidYTemp}}		
-		\arabic{flag}	&	\arabic{EuclidR}	&	\arabic{EuclidQ}	&	\arabic{EuclidXB}	&	\arabic{EuclidYB}	\ifthenelse{\value{EuclidB} > 0}{\\\hline}{}
+		\setcounter{EuclidYB}{\value{EuclidYTemp}}				
+		\ifthenelse{\value{EuclidB} > 0}{\\\hline}{}
 	}	\\\hline
 	
 \end{array}$$
