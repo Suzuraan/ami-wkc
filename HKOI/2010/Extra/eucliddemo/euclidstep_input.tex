@@ -1,0 +1,63 @@
+\usepackage{calc}
+\usepackage{forloop}
+\usepackage{ifthen}
+
+\newcounter{flag}
+\newcounter{flagTemp}
+\newcounter{EuclidA} 
+\newcounter{EuclidB} 
+\newcounter{EuclidR} 
+\newcounter{EuclidQ} 
+\newcounter{EuclidXA}
+\newcounter{EuclidXB}
+\newcounter{EuclidYA}
+\newcounter{EuclidYB}
+\newcounter{EuclidXTemp}
+\newcounter{EuclidYTemp}
+
+
+\newcommand{\doEuclideanAlgorithm}[3]{
+
+\setcounter{EuclidA}{#1}
+\setcounter{EuclidB}{#2}
+\setcounter{EuclidXA}{1}
+\setcounter{EuclidYA}{0}
+\setcounter{EuclidXB}{0}
+\setcounter{EuclidYB}{1}
+%\forLoop{1}{4}{identRow} { \forLoop{1}{4}{identCol} { \ifthenelse{ \equal{ \value{identRow} }{ \value{identCol} } }{ 1 }{ 0 } \ifthenelse{ \equal{\value{identCol}}{10} }{}{ & } } \\ }
+
+%\arabic{EuclidR}	&	\arabic{EuclidQ}	&	\arabic{EuclidXB}	&	\arabic{EuclidYB}	\\ \hline
+%\arabic{EuclidR}	\;	\arabic{EuclidQ}	\;	\arabic{EuclidXB}	\;	\arabic{EuclidYB}	\\
+
+\ifthenelse{#3>2}{	
+	$$\begin{array}[t]{|c||c|c|c|c|c|} \hline
+		k	&	r_k					&	q_k	&	x_k	&	y_k	&	\mbox{Formulae}	\\ \hline \hline
+		0	&	\arabic{EuclidA}	&		&	1	&	0	&		\\ \hline
+		1	&	\arabic{EuclidB}	&		&	0	&	1	&		\\ \hline
+		\forloop[1]{flag}{2}{\value{flag} < #3 \AND \value{EuclidB} > 0}{
+			\setcounter{EuclidQ}{\value{EuclidA} / \value{EuclidB}} 
+			\setcounter{EuclidR}{\value{EuclidA} - \value{EuclidQ} * \value{EuclidB}}
+			\setcounter{EuclidXTemp}{\value{EuclidXA} - \value{EuclidXB} * \value{EuclidQ}}
+			\setcounter{EuclidYTemp}{\value{EuclidYA} - \value{EuclidYB} * \value{EuclidQ}}
+			\arabic{flag}	&	\arabic{EuclidR}	&	\arabic{EuclidQ}	&	\arabic{EuclidXTemp}	&	\arabic{EuclidYTemp}	&	\arabic{EuclidA}=\arabic{EuclidB}\cdot\arabic{EuclidQ}+\arabic{EuclidR}
+			\setcounter{EuclidA}{\value{EuclidB}}
+			\setcounter{EuclidB}{\value{EuclidR}}		
+			\setcounter{EuclidXA}{\value{EuclidXB}}
+			\setcounter{EuclidXB}{\value{EuclidXTemp}}		
+			\setcounter{EuclidYA}{\value{EuclidYB}}
+			\setcounter{EuclidYB}{\value{EuclidYTemp}}				
+			\setcounter{flagTemp}{\value{flag}+1}
+			\ifthenelse{\value{flagTemp} < #3  \AND \value{EuclidB} > 0}{\\\hline}{}
+		}\\\hline
+	\end{array}$$
+}{
+	$$\begin{array}[t]{|c||c|c|c|c|c|} \hline
+	k	&	r_k					&	q_k	&	x_k	&	y_k	&	\mbox{Formulae}	\\ \hline \hline
+	0	&	\arabic{EuclidA}	&		&	1	&	0	&		\\ \hline
+	1	&	\arabic{EuclidB}	&		&	0	&	1	&		\\ \hline
+	\end{array}$$
+}
+\newpage
+}
+
+
