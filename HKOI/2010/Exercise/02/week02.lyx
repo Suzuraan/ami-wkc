@@ -1492,7 +1492,11 @@ y_{k} & =y_{k-2}-q_{k}y_{k-1},\mbox{ for }k>1\end{align*}
 \end_layout
 
 \begin_layout Theorem
-Compute the numbers until 
+Compute the numbers starting from 
+\begin_inset Formula $k=2,3,\dots$
+\end_inset
+
+ until 
 \begin_inset Formula $r_{k}=0$
 \end_inset
 
@@ -1512,7 +1516,11 @@ Then
 \end_layout
 
 \begin_layout Theorem
-At each row, we have 
+For each 
+\begin_inset Formula $k$
+\end_inset
+
+, we have 
 \begin_inset Formula $mx_{k}+ny_{k}=r_{k}$
 \end_inset
 
