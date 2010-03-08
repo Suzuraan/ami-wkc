@@ -1,1 +1,94 @@
+%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[size=8pt,english,style=fyma,display=slidesnotes,mode=present,paper=screen]{powerdot}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphics}
+\input{euclid_input.tex}
+\onehalfspacing
 
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{plain}
+\newtheorem*{thm*}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{rem*}{Remark}
+\makeatother
+
+\usepackage{babel}
+
+\begin{document}
+	
+	\title{HKOI Training}
+	\author{$ami\sim wkc$}
+	\date{Last modified: \today}
+	\maketitle
+	\lyxend\section{Euclidean algorithm}
+	
+\begin{slide}{Finding integer solutions}
+	Finding integers solutions to $123 x+9y=3$.	\pause
+	
+	\begin{rem*}
+		Here, all the unknowns are assumed to be integers.
+	\end{rem*}
+
+	\pause
+
+	\begin{onehalfspace}
+		\doEuclideanAlgorithm{123}{9}
+	\end{onehalfspace}
+	
+	To understand the euclidean algorithm for finding a parituclar solution.	\pause
+	
+	First, we have $123=9\left(13\right)+6\iff123\left(1\right)+9\left(-13\right)=6$	\pause
+	
+	From the second formulae, $9=6\left(1\right)+3\iff9\left(1\right)-6\left(1\right)=3$	\pause
+	
+	i.e. $9\left(1\right)-\left(123\left(1\right)+9\left(-13\right)\right)\left(1\right)=3\iff123\left(-1\right)+9\left(14\right)=3$	\pause
+	
+	Through this, you should know the new $x_{k}$ and $y_{k}$ are obtained
+	
+	by $x_{k-2}-q_{k}x_{k-1}$ and $y_{k-2}-q_{k}y_{k-1}$.	\pause
+	\begin{rem*}
+		Remember that, we always read the last but one row to find a solution.
+	\end{rem*}
+\end{slide}
+\begin{slide}{Solving modulus equation}
+	Find all integers $x$ such that $7x\bmod13=1$.	\pause
+	
+	\begin{proof}
+		The remainder is $1$ means that $7x$ is the sum a multiple of $13$
+		and $1$.	\pause
+		
+		Mathematically, this is equivalent to $7x=13m+1$ for some $x$ and
+		$m$.	\pause
+		
+		Rewrite it into $7x-13m=1$ and let $y=-m$.	\pause
+		
+		It becomes $7x+13y=1$ and should have infinitely many solutions.	\pause
+		
+		Finally, using the euclidean algorithm, 	\pause
+		
+		\begin{onehalfspace}
+			\doEuclideanAlgorithm{13}{7}
+		\end{onehalfspace}
+		
+		we find $x_{0}=2$.	\pause
+		
+		\begin{doublespace}
+			Hence, all the integers $x$ are of the form $2+13k$ where $k$ is
+			any integers.\end{doublespace}
+			
+	\end{proof}
+\end{slide}
+\section{End}
+\end{document}
