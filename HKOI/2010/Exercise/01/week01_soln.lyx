@@ -662,12 +662,12 @@ If
 \noun off
 \color none
  
-\begin_inset Formula $OD'^{2}=a-d$
+\begin_inset Formula $OD'=OD-DD'=a-d$
 \end_inset
 
 .
  Otherwise, 
-\begin_inset Formula $OD'^{2}=a+d$
+\begin_inset Formula $OD'=OD+DD'=a+d$
 \end_inset
 
 
@@ -686,7 +686,7 @@ Since
 \end_layout
 
 \begin_layout Proof
-\begin_inset Formula $\therefore CD'^{2}=c^{2}-\left(a\pm d\right)^{2}=c^{2}-a^{2}\pm2ad-d^{2}=b^{2}\pm2ad-d^{2}$
+\begin_inset Formula $\therefore CD'^{2}=c^{2}-\left(a\pm d\right)^{2}=c^{2}-a^{2}\mp2ad-d^{2}=b^{2}\mp2ad-d^{2}$
 \end_inset
 
 
@@ -705,7 +705,7 @@ On the other hand,
 \end_layout
 
 \begin_layout Proof
-\begin_inset Formula $\therefore\left(b^{2}\pm2ad-d^{2}\right)+\left(d^{2}\right)=b^{2}\iff\pm2ad=0\implies d=0$
+\begin_inset Formula $\therefore\left(b^{2}\mp2ad-d^{2}\right)+\left(d^{2}\right)=b^{2}\iff\mp2ad=0\implies d=0$
 \end_inset
 
 , since 
