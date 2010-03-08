@@ -1453,10 +1453,10 @@ To find a particular one, we use the following method.
 \begin_layout Theorem
 \paragraph_spacing single
 \begin_inset OptArg
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Euclidean algorithm
+Extended Euclidean algorithm
 \end_layout
 
 \end_inset
