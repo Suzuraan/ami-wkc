@@ -1,0 +1,248 @@
+%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[size=8pt,english,style=fyma,display=slidesnotes,mode=present,paper=screen]{powerdot}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphics}
+\usepackage{polynom}
+\onehalfspacing
+
+\makeatletter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+	\theoremstyle{plain}
+	\newtheorem*{thm*}{Theorem}
+	\newtheorem*{def*}{Definition}
+\makeatother
+
+\usepackage{babel}
+
+\begin{document}
+	
+\title{HKOI Training}
+\author{$ami\sim wkc$}
+\date{Last modified: \today}
+\maketitle
+\lyxend\section[toc=Lecture 03]{Lecture 03 \\ Mathematical reasoning.\\ Combinatorics and algorithms.\\ Variables in C}
+
+\section{Mathematical reasoning}
+\begin{slide}{Verification of propositions}
+	In last lecture, we discussed about the construction of propositions. \pause
+	
+	We also talked about the association of the truth values of those further constructed propositions. \pause
+	
+	All in all, we still need to know the truth value of the very first proposition. \pause
+	
+	For example,\pause
+	
+	\begin{itemize}
+		\item	$2$ is a prime number.\pause
+		\item	Pythagoras theorem is true\footnote{Read the solution of week 1 exercise for complete proof}.\pause		
+		\item	$1+2+3=\frac{1}{2}\left(3\right)\left(4\right)$. \pause (Yes) \pause
+		\item	There are infinitely many prime numbers. \pause (Yes) \pause
+		\item	$\sqrt{x^2} = x$. \pause (No, it is false when x is negative.) \pause
+		\item	If $n$ is a 5-digit square integer, then $n=29929$. \pause (No)
+		\item	$x=2$ only if $x^2=4$. \pause	(Yes)
+		\item	$x=2$ if $x^2=4$. \pause	(No)
+		\item	$n=2$ and $n$ is a prime. \pause	(Yes)
+	\end{itemize}
+\end{slide}
+
+\begin{slide}[toc=]{Proposition / Statement}
+	The following are not propositions or we won't discuss the following kind of sentences. \pause
+	
+	\begin{itemize}
+		\item	What time is it now?\pause
+		\item	\pause (empty string)\footnote{This is usually called the $\epsilon$-string} \pause		
+		\item	This statement is false. \pause
+		\item	I am lying. \footnote{The Liar paradox}\pause
+		\item	The second unique child of God is a female. \pause
+	\end{itemize}
+	
+	Actually, some of them can be considered as statements. 
+	
+	However, for simplicity, we shall avoid them at this moment.
+\end{slide}
+\begin{slide}{Proposition operators}
+	Given some propositions, 
+	
+	we can create new propositions from them by using \emph{logical connectives}. \pause
+	
+	Be careful, we don't interpret the meaning at this stage. \pause
+	
+	For example\footnote{We don't care about grammar or tense. What we are interested in the new proposition only.}, \pause
+		
+	\begin{itemize}
+		\item	NOT(Today is hot).\pause
+		\item	NOT(I will not go to school). \pause		
+		\item	Today is hot AND I will go to school. \pause
+		\item	If today is hot, then I will not go to school. \pause
+		\item	$x>3$ OR $x<-1$. \pause		
+		\item	Every $x$ is greater than $3$. \pause
+		\item	There is a number which is less than $-1$ or greater than $3$. \pause		
+	\end{itemize}
+\end{slide}
+\begin{slide}{Negation - NOT}
+	The negation of a proposition $P$ is $\sim{}P$. \pause
+	
+	Some book use $\lnot P$ to denote the negation. \pause
+	
+	It is simply a proposition prefixed by a word ``not''.
+	
+	\begin{itemize}
+		\item	NOT(Today is hot).\pause
+		\item	NOT(I will not go to school). \pause		
+		\item	NOT($x>3$). \pause
+		\item	NOT($x$ is a prime). \pause		
+	\end{itemize}
+\end{slide}
+\begin{slide}{Conjunction - AND}
+	The conjunction of two propositions $P,Q$ is $(P)\land{}(Q)$. \pause
+	
+	We will denote the conjunction usually by $(P)\, and\, (Q)$ instead. \pause
+	
+	It connects two propositions by adding by a word ``and''.\pause
+	
+	We may sometimes omit the parentheses as well as long as the meaning is clear.\pause
+	
+	\begin{itemize}
+		\item	(Today is hot) AND (I will go to school).\pause
+		\item	Today is hot AND I will go to school.\pause		
+		\item	NOT(I will not go to school) AND NOT(Today is hot). \pause
+		\item   ($x>2$) AND ($x$ is even). \pause		
+	\end{itemize}
+\end{slide}
+
+\section{Grammar in C}
+\begin{slide}{English Grammar}
+	For those who study linguistic, they view the grammar of English systematically.
+
+	\begin{itemize}
+		\item 	Each passage consists of a title, author and a sequence of paragraphs  \pause 
+		\item 	Each paragraph is a sequence of sentences  \pause 		
+		\item	Every sentence end with a full-stop (.) or an exclamation mark (!). \pause
+		\item	\mbox{<sentence> $::=$ <subject> <verb> [<object>]} \footnote{Every sentence consists of a subject and a verb, object is optional} \pause
+		\item	Every subject is a noun-phrase, verb-phrase etc. \pause
+		\item 	Every noun-pharse are consists of a smaller noun-phrase, noun, relative pronoun etc. \pause
+		\item 	Every noun are vocabulary. \pause
+		\item	Every vocabulary is consisting of correctly spelled character sequences. \pause
+		\item	A character sequence is consists of characters \pause
+		\item 	Each character is from 'a' to 'z' or 'A' to 'Z' \pause
+	\end{itemize}
+\end{slide}
+
+\begin{slide}{C Grammar - BNF Grammar}
+	An analogue linguistic structure for programming language C also exists.
+	
+	\begin{itemize}
+		\item	Each program consists of pre-processor directives and functions\footnote{A part to tell the computer to store action.} \pause
+		\item	Each function consists of statements. \pause
+		\item	Every statements ends with a semi-colon (;). \pause
+		\item	Every statement is either a control flow , variable declaration or expression. \pause
+		\item	expression can be arithmetic expression, logical expression etc. \pause
+		\item	arithmetic expression consists consists of addition, subtraction etc. \pause
+		\item	\mbox{<addition>$::=$<Arithmetic Operand 1> '+' <Arithmetic 2>} \pause
+		\item	Arithmetic Operand can be function values, variables names or numbers. \pause
+		\item	numbers can be integers or real numbers. \pause
+		\item	\mbox{<integers>$::=$ [0-9]+}, i.e. at least one of any one of '0','1', $\cdots$, '9' \pause
+	\end{itemize}
+\end{slide}
+
+\begin{slide}{Arithmetic Expression}
+	We learnt the way to convert usual mathematical expression into C language. \pause
+	
+	However, how could we tell the computer to do the following two different action? \pause
+	
+	\medskip{}
+	
+	\twocolumn[]{
+		$3\div{}2$ 
+		
+		$3\div{}2$		
+	}{
+		Quotient: 1  \pause
+		
+		Real division: 1.5 \pause
+	}
+	
+	\pause
+
+	Even ourselves cannot distinguish the two different division without further explanation.\pause
+	
+	Computer will use the following rules to distinguish the two different division.\pause
+	
+	\medskip{}
+	
+	\begin{enumerate}
+		\item	If every operands are computer-integers, it perform the quotient division.\footnote{Computer like doing discrete mathematics too!} \pause
+		\item	If any one of the operand is not a computer-integer, it will switch to real division. \pause
+	\end{enumerate}
+	
+	\medskip{}
+
+	Computer-integers means that the number is ``written in a form''
+	
+	so that the computer treat it as an integer. \pause
+	
+	For example, we can say $2.3$ is not a whole number due to the decimal place.
+	
+\end{slide}
+
+\begin{slide}{Regular Expression}
+	To specify clear what we mean by ``written in a form'', we need \textbf{Regular Expression}. \pause
+
+	It is a tool used for string matching. \pause
+	
+	For example, \pause
+	
+	\begin{itemize}
+		\item[\mbox{[0-9]}]  matches any one of the character '0','1',$\cdots$,'9' \pause
+		\item[\mbox{[0-9]+}] matches any string that is consists of at least one digit. \pause
+		\item[\mbox{a*bc}] matches any string that is end with ``bc'' and start with any number of ``a'. \pause
+		\item[\mbox{[\textasciicircum{}a-z]}] matches any character that is not one of 'a','b',$\cdots$,'z'. \pause
+		\item[\mbox{ak4|bb10}] matches any one of the string ``ak4'' or ``bb10''. \pause
+		\item[\mbox{(ab)|(kaab)}] matches any one of the string ``ab'' or ``kaab''\footnote{The parentheses here is used for grouping}. \pause
+		\item[\mbox{(a|b)+}] matches any string that is consists of 'a' and 'b' and is non-empty. \pause
+		\item[\mbox{a|b+}] matches any string ``a'' , ``b'' , ``bb'', ``bbb'' , $\cdots$. \pause
+		\item[\mbox{(\textbackslash{}+|\textbackslash{}-)?}] matches any string ``+'' , ``-'' or $\epsilon$-string , $\cdots$. \pause		
+	\end{itemize}
+\end{slide}
+
+\begin{slide}{Computer Integers and Real numbers}
+	Although we won't distinguish usually between $2.5$ and $3$, there are just number. \pause
+	
+	Computer would like to do so. \pause
+	
+	It only knows whole number. \pause
+	
+	\medskip{}
+	
+	Computer integer is of the form (\textbackslash{}+|\textbackslash{}-)?[0-9]+ \pause
+	
+	Therefore, it will treat $3/2$ to be $1$. \pause
+	
+	\medskip{}
+	
+	For simplicity, we denote [DIGIT] to be [0-9] and [INT] to be [DIGIT]+ \pause
+	
+	Computer treats other numbers to be computer-real number, it can be ``-2.3'' , ``2.0'', ``1E+12''\footnote{Scientific notation $1\times{}10^{12}$.}. \pause
+	
+	Let [SIGN] $::=$ (\textbackslash{}+|\textbackslash{}-), \pause
+	
+	Computer real number is of the form [SIGN]?[DIGIT]*''.''[DIGIT]+((e|E)[SIGN]?[INT])  or [SIGN]?[DIGIT]+(e|E)[SIGN]?[INT]. \pause
+	
+	\medskip{}	
+	
+	Therefore, it will treat $3/2.0$ to be $1.5$ , $3.0/2$ to be $1.5$ and $3.0/2.0$ to be $1.5$. \pause
+\end{slide}
+\section{End}
+\end{document}
