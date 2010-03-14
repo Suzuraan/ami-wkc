@@ -9,6 +9,7 @@
 \usepackage{tikz}
 \usepackage{graphics}
 \usepackage{polynom}
+\usepackage{algorithm2e}
 \onehalfspacing
 
 \makeatletter
@@ -22,6 +23,7 @@
 	\theoremstyle{plain}
 	\newtheorem*{thm*}{Theorem}
 	\newtheorem*{def*}{Definition}
+	\newtheorem*{axiom*}{Axiom}
 \makeatother
 
 \usepackage{babel}
@@ -32,13 +34,13 @@
 \author{$ami\sim wkc$}
 \date{Last modified: \today}
 \maketitle
-\lyxend\section[toc=Lecture 03]{Lecture 03 \\ Mathematical reasoning.\\ Combinatorics and algorithms.\\ Variables in C}
+\lyxend\section[toc=Lecture 03]{Lecture 03 \\ Mathematical reasoning.\\ Control flows and algorithms.\\ Variables in C}
 
 \section{Mathematical reasoning}
 \begin{slide}{Verification of propositions}
 	In last lecture, we discussed about the construction of propositions. \pause
 	
-	We also talked about the association of the truth values of those further constructed propositions. \pause
+	We know the association of the truth values of those further constructed propositions. \pause
 	
 	However, we did not mention how one could know the truth value of a given proposition. \pause
 	
@@ -46,203 +48,760 @@
 	
 	\begin{itemize}
 		\item	$2$ is a prime number.\pause
-		\item	Pythagoras theorem is true\footnote{Read the solution of week 1 exercise for complete proof}.\pause		
-		\item	Today is hot. \pause (Another way to verify) \pause
-		\item	There are infinitely many prime numbers. \pause (Yes) \pause
-		\item	$\sqrt{x^2} = x$. \pause (No, it is false when x is negative.) \pause
-		\item	If $n$ is a 5-digit square integer, then $n=29929$. \pause (No)
-		\item	$x=2$ only if $x^2=4$. \pause	(Yes)
-		\item	$x=2$ if $x^2=4$. \pause	(No)
-		\item	$n=2$ and $n$ is a prime. \pause	(Yes)
+		\item	Pythagoras theorem is true.\footnote{Read the solution of week 1 exercise for complete proof.}\pause		
+		\item	Angle sum of triangle is always $180^\circ$. \pause (What is the meaning of ``always'' here?)\pause
+		\item	The Extended Euclidean algorithm is correct.\footnote{A proposition involving recursive definition. It will be proved in number theory.} \pause (Implicitly ``always'') \pause				
+		\item	Today is hot. \pause (Another way to verify)\pause
+		\item	$\forall x,\sqrt{x^2} = x$. \pause (Counterexample is demonstrated.) \pause
+		\item	If $n$ is a 5-digit square integer, then $n=29929$.\footnote{What is its truth value, when $n$ is $10$, $29929$, $10000$?} \pause (Mostly yes.) \pause
 	\end{itemize}
 \end{slide}
 
-\begin{slide}[toc=]{Proposition / Statement}
-	The following are not propositions or we won't discuss the following kind of sentences. \pause
+\begin{slide}[toc=Ambiguity of IF-THEN]{Ambiguity of conditional proposition}
+	Let's discuss a conditional proposition with a propositional variable,
 	
-	\begin{itemize}
-		\item	What time is it now?\pause
-		\item	\pause (empty string)\footnote{This is usually called the $\epsilon$-string} \pause		
-		\item	This statement is false. \pause
-		\item	I am lying. \footnote{The Liar paradox}\pause
-		\item	The second unique child of God is a female. \pause
-	\end{itemize}
-	
-	Actually, some of them can be considered as statements. 
-	
-	However, for simplicity, we shall avoid them at this moment.
-\end{slide}
-\begin{slide}{Proposition operators}
-	Given some propositions, 
-	
-	we can create new propositions from them by using \emph{logical connectives}. \pause
-	
-	Be careful, we don't interpret the meaning at this stage. \pause
-	
-	For example\footnote{We don't care about grammar or tense. What we are interested in the new proposition only.}, \pause
-		
-	\begin{itemize}
-		\item	NOT(Today is hot).\pause
-		\item	NOT(I will not go to school). \pause		
-		\item	Today is hot AND I will go to school. \pause
-		\item	If today is hot, then I will not go to school. \pause
-		\item	$x>3$ OR $x<-1$. \pause		
-		\item	Every $x$ is greater than $3$. \pause
-		\item	There is a number which is less than $-1$ or greater than $3$. \pause		
-	\end{itemize}
-\end{slide}
-\begin{slide}{Negation - NOT}
-	The negation of a proposition $P$ is $\sim{}P$. \pause
-	
-	Some book use $\lnot P$ to denote the negation. \pause
-	
-	It is simply a proposition prefixed by a word ``not''.
-	
-	\begin{itemize}
-		\item	NOT(Today is hot).\pause
-		\item	NOT(I will not go to school). \pause		
-		\item	NOT($x>3$). \pause
-		\item	NOT($x$ is a prime). \pause		
-	\end{itemize}
-\end{slide}
-\begin{slide}{Conjunction - AND}
-	The conjunction of two propositions $P,Q$ is $(P)\land{}(Q)$. \pause
-	
-	We will denote the conjunction usually by $(P)\, and\, (Q)$ instead. \pause
-	
-	It connects two propositions by adding by a word ``and''.\pause
-	
-	We may sometimes omit the parentheses as well as long as the meaning is clear.\pause
-	
-	\begin{itemize}
-		\item	(Today is hot) AND (I will go to school).\pause
-		\item	Today is hot AND I will go to school.\pause		
-		\item	NOT(I will not go to school) AND NOT(Today is hot). \pause
-		\item   ($x>2$) AND ($x$ is even). \pause		
-	\end{itemize}
-\end{slide}
-
-\section{Grammar in C}
-\begin{slide}{English Grammar}
-	For those who study linguistic, they view the grammar of English systematically.
-
-	\begin{itemize}
-		\item 	Each passage consists of a title, author and a sequence of paragraphs  \pause 
-		\item 	Each paragraph is a sequence of sentences  \pause 		
-		\item	Every sentence end with a full-stop (.) or an exclamation mark (!). \pause
-		\item	\mbox{<sentence> $::=$ <subject> <verb> [<object>]} \footnote{Every sentence consists of a subject and a verb, object is optional} \pause
-		\item	Every subject is a noun-phrase, verb-phrase etc. \pause
-		\item 	Every noun-pharse are consists of a smaller noun-phrase, noun, relative pronoun etc. \pause
-		\item 	Every noun are vocabulary. \pause
-		\item	Every vocabulary is consisting of correctly spelled character sequences. \pause
-		\item	A character sequence is consists of characters \pause
-		\item 	Each character is from 'a' to 'z' or 'A' to 'Z' \pause
-	\end{itemize}
-\end{slide}
-
-\begin{slide}{C Grammar - BNF Grammar}
-	An analogue linguistic structure for programming language C also exists.
-	
-	\begin{itemize}
-		\item	Each program consists of pre-processor directives and functions\footnote{A part to tell the computer to store action.} \pause
-		\item	Each function consists of statements. \pause
-		\item	Every statements ends with a semi-colon (;). \pause
-		\item	Every statement is either a control flow , variable declaration or expression. \pause
-		\item	expression can be arithmetic expression, logical expression etc. \pause
-		\item	arithmetic expression consists consists of addition, subtraction etc. \pause
-		\item	\mbox{<addition>$::=$<Arithmetic Operand 1> '+' <Arithmetic 2>} \pause
-		\item	Arithmetic Operand can be function values, variables names or numbers. \pause
-		\item	numbers can be integers or real numbers. \pause
-		\item	\mbox{<integers>$::=$ [0-9]+}, i.e. at least one of any one of '0','1', $\cdots$, '9' \pause
-	\end{itemize}
-\end{slide}
-
-\begin{slide}{Arithmetic Expression}
-	We learnt the way to convert usual mathematical expression into C language. \pause
-	
-	However, how could we tell the computer to do the following two different action? \pause
-	
-	\medskip{}
-	
-	\twocolumn[]{
-		$3\div{}2$ 
-		
-		$3\div{}2$		
-	}{
-		Quotient: 1  \pause
-		
-		Real division: 1.5 \pause
-	}
+	$P\left(n\right):=$``If $n$ is a 5-digit square integer, then $n=29929$''.
 	
 	\pause
-
-	Even ourselves cannot distinguish the two different division without further explanation.\pause
 	
-	Computer will use the following rules to distinguish the two different division.\pause
+	Indeed, ``If $n$ is a 5-digit square integer, then $n=29929$'' is not a well-defined proposition.
+	\footnote{You cannot tell whether it is true or not by merely reading the $n$ as a variable} \pause
 	
-	\medskip{}
-	
-	\begin{enumerate}
-		\item	If every operands are computer-integers, it perform the quotient division.\footnote{Computer like doing discrete mathematics too!} \pause
-		\item	If any one of the operand is not a computer-integer, it will switch to real division. \pause
-	\end{enumerate}
-	
-	\medskip{}
-
-	Computer-integers means that the number is ``written in a form''
-	
-	so that the computer treat it as an integer. \pause
-	
-	For example, we can say $2.3$ is not a whole number due to the decimal place.
-	
-\end{slide}
-
-\begin{slide}{Regular Expression}
-	To specify clear what we mean by ``written in a form'', we need \textbf{Regular Expression}. \pause
-
-	It is a tool used for string matching. \pause
+	To discuss the truth value, one need to give a value to $n$. \pause	
 	
 	For example, \pause
 	
 	\begin{itemize}
-		\item[\mbox{[0-9]}]  matches any one of the character '0','1',$\cdots$,'9' \pause
-		\item[\mbox{[0-9]+}] matches any string that is consists of at least one digit. \pause
-		\item[\mbox{a*bc}] matches any string that is end with ``bc'' and start with any number of ``a'. \pause
-		\item[\mbox{[\textasciicircum{}a-z]}] matches any character that is not one of 'a','b',$\cdots$,'z'. \pause
-		\item[\mbox{ak4|bb10}] matches any one of the string ``ak4'' or ``bb10''. \pause
-		\item[\mbox{(ab)|(kaab)}] matches any one of the string ``ab'' or ``kaab''\footnote{The parentheses here is used for grouping}. \pause
-		\item[\mbox{(a|b)+}] matches any string that is consists of 'a' and 'b' and is non-empty. \pause
-		\item[\mbox{a|b+}] matches any string ``a'' , ``b'' , ``bb'', ``bbb'' , $\cdots$. \pause
-		\item[\mbox{(\textbackslash{}+|\textbackslash{}-)?}] matches any string ``+'' , ``-'' or $\epsilon$-string , $\cdots$. \pause		
+		\item	$P\left(2\right)$ is true as $2$ is not a five digit integer.\pause
+		\item	$P\left(10000\right)$ is false. \pause
+		\item	$P\left(29929\right)$ is true. \pause
+	\end{itemize}
+	
+	In mathematics, we would usually interpret the sentence ''$Q\left(n\right)\implies P\left(n\right)$'' to be
+	
+	``$\forall n$, $Q\left(n\right)\implies P\left(n\right)$''. \pause
+	
+	\medskip
+	
+	That's how we say $P\left(n\right)$ is false without explicitly giving a value to $n$.\pause
+	
+	Similarly, the word ``always'' has the implicit ``FOR-ALL'' meaning.
+	
+	
+\end{slide}
+\begin{slide}[toc=Direct Proof]{Direct Proof - Proof from definition : $n\cdot 0=0$}
+	How to prove / disprove the proposition ``$\forall n,0\cdot n=0$''? \pause
+	
+	To verify this above proposition, we need to know about what do we mean by $0$. \pause
+	
+	\begin{def*}
+		$0$ is the number such that for any $n$, $n+0=n$.
+	\end{def*}
+
+	\begin{def*}
+		$-n$ is the number such that $n+ \left(-n\right)=0$.
+	\end{def*}
+
+	\pause	
+	
+	\begin{proof}
+		We use the distributive law and the definition of $0$, \pause
+		
+		$n\cdot 0 = n \cdot \left(0+0\right) = n\cdot 0 + n\cdot 0$ \pause
+		
+		Adding $-\left(n\cdot 0\right)$ to both side, we get $n\cdot 0=0$.
+	\end{proof}
+	
+	\pause
+	
+	This proof seems meaningless, however, remember what properties we used. \pause
+	
+	\medskip
+	
+	Later on, if there is another kind of arithmetic system also having the same properties, \pause
+	
+	we can claim that the above still holds.\pause
+	
+	For example, the modular arithmetic, i.e. doing arithmetic on a clock.
+	
+\end{slide}
+
+\begin{slide}[toc=]{Direct Proof - Proof from definition : $\left(-1\right)\left(-1\right)=1$}
+	How to prove / disprove the proposition ``$\left(-1\right)\left(-1\right)=1$''? \pause
+	
+	\begin{def*}
+		$1$ is the number such that for any non-zero $n$, $1\cdot n=n$.
+	\end{def*}
+	
+	\begin{proof}
+		$\left(1+\left(-1\right)\right)^2 = 1^2 + 1 \times \left(-1\right) + \left(-1\right)\times 1 + \left(-1\right)\left(-1\right)$\pause
+		
+		Using the definition of $1$, we have, $1^2=1$ , $1 \times \left(-1\right)=-1$ and $ \left(-1\right)\times 1 = -1$.\pause
+		
+		From the definition of $-n$, we have  $\left(1+\left(-1\right)\right)=0$ and  $\left(1+\left(-1\right)\right)^2 = 0\cdot 0=0$.\pause
+
+		Therefore, we have $0=1 + \left(-1\right) + \left(-1\right) + \left(-1\right)\left(-1\right)$.\pause
+		
+		Evaluating from left to right, $1 + \left(-1\right)$ becomes $0$. \pause
+		
+		This gives,  $0= \left(-1\right) + \left(-1\right)\left(-1\right)$. \pause
+		
+		Finally, adding $1$ to the left of both sides, we have $1 = 1 +  \left(-1\right) + \left(-1\right)\left(-1\right)$ \pause
+		
+		Therefore, $1 =  \left(-1\right)\left(-1\right)$.
+		
+	\end{proof}
+	
+	\pause
+	
+	We will come back to these proofs at Abstract Algebra.
+\end{slide}
+\begin{slide}[toc=Proof by counterexample]{Proof by example / counterexample}
+	Usually, to deal with propositions with FOR-ALL, \pause
+	
+	one can prove its falsity by showing a counterexample.\pause
+	
+	\medskip
+	
+	``Every people eat meat'', this is false as we can find a vegetarian.\pause
+	
+	\medskip
+	
+	Similarly, one could show the correctness of a THERE-EXISTS statement \pause
+	
+	by giving a particular example.
+	
+	\medskip
+	
+	``There is a pair of integers $x$ and $y$ such that $7x+9y=1$''. \pause
+
+	\medskip
+	
+	$7\left(-5\right)+9\left(4\right)=1$, hence the above proposition is true.
+\end{slide}
+\begin{slide}{Verifying everything}
+	However, to prove the correctness of a FOR-ALL statement, \pause
+	
+	or the falsity of a THERE-EXISTS statement, \pause
+	
+	we need another way. \pause
+	
+	For example, the following statements cannot be proved easily in logic \pause
+	
+	\medskip
+	
+	\begin{itemize}
+		\item	Every horses have four legs. \footnote{You need to grab all the horses and observe one by one} \pause
+		\item 	There is no any extraterrestrial life. \footnote{You need to observe everywhere outside the Earth}\pause
+	\end{itemize}
+	
+\end{slide}
+\begin{slide}{Proof by induction}
+	Given the \textbf{domain of discourse} is the positive integers. \pause
+	
+	One can use a tool called \textbf{Mathematical Induction} to prove a FOR-ALL statement. \pause
+		
+	\medskip
+	
+	Let $P(n)::=\mbox{''} 1+2+\cdots+n \mbox{ is always equal to } \frac{1}{2}n(n+1)\mbox{"}$. \pause 
+	
+	We can check $P(1),\dots ,P(100)$ one by one. \pause
+	\begin{itemize}
+		\item	$1 = \frac{1}{2}(1)(2)$  \pause
+		\item 	$1+2 = 3 = \frac{1}{2}(2)(3)$ \pause
+	\end{itemize}
+	
+	However, we still don't know whether $P(101)$ is true or not. \pause
+	
+	Even you can check the proposition up to $100000$, \pause
+	
+	there are still infinitely many propositions to be verified. \pause
+	
+	To verify all of them, we cannot check one by one.\footnote{You may use a direct proof to show}
+\end{slide}
+\begin{slide}{Well ordering principle}
+	\begin{axiom*}[Well ordering principle]
+		Let $\mathcal{S}$ be a collection of positive integers.
+		
+		If $\mathcal{S}$ is non-empty, then it has the smallest integer.
+		
+		i.e. Every non-empty collection of positive integers has the smallest integer.
+	\end{axiom*}
+	
+	The above axiom says that
+	
+	you can always find the smallest integer whenever you have some integers.\pause
+	
+	\medskip
+	
+	For example, we can mention about \pause
+	
+	\medskip
+	
+		\begin{itemize}
+			\item the smallest positive even number.\pause
+			\item the smallest positive odd number.\pause
+			\item the smallest common multiple of $15$ and $20$.\pause
+			\item the smallest positive prime.\pause
+		\end{itemize}
+\end{slide}
+
+\begin{slide}{Idea of induction}
+	Assume the \textbf{domain of discourse} is the positive integers.
+	
+	\pause
+	
+	\begin{thm*}[Mathematical induction] Let $P(n)$ be a proposition with propositional variable $n$. \pause
+		Suppose the following: \pause
+			\begin{enumerate}
+				\item	$P(1)$ is true.
+				\item	$\forall k, P(k)\implies P(k+1)$ is true.
+			\end{enumerate}
+		\pause
+		
+		Then $\forall k,P(k)$ is true
+	\end{thm*}
+	
+	\pause
+	
+	Therefore, to show that a FOR-ALL proposition,  \pause
+	
+	one can check $P(1)$ is true and prove the second conditional statement.
+	
+	\pause
+	
+	\medskip
+	
+	The first condition is called the \textbf{base case}.
+	
+	The second condition is called the \textbf{induction step}.
+	
+\end{slide}
+\begin{slide}{Proof of induction}
+	\begin{proof}
+		Let $\mathcal{S}$ be the collection of positive integers $n$ such that $P(n)$ is false.\pause
+		
+		we want to show that this collection is empty.\pause
+		
+		Let's see what happen if it is non-empty.\pause
+		
+		Suppose it is non-empty, the well-ordering principle tells that the smallest integer exists. \pause
+		
+		i.e. There is a smallest integer $m$  such that $P(m)$ is false.\pause
+		
+		Denote that integer by $m$ and clearly $m\neq 1$ since $P(1)$ is true. \pause
+		
+		Therefore, $m>1$  and $m-1$ is again a positive integer. \pause
+		
+		Since $m$ is the smallest one such that $P(m)$ is false, we have $P(m-1)$ is true.\pause
+		
+		Finally, the second part of our assumption, tells that $P(m-1)\implies P(m)$ is true.\pause
+		
+		Since $P(m-1)$ is true , we must have  $P(m)$ be true. \pause (contradiction, as $P(m)$ is false.) \pause
+		
+		Therefore, the very most assumption of ``$\mathcal{S}$ is non-empty'' is false. \pause
+		
+		Hence, there is no any positive integer $n$ such that $P(n)$ is false. \pause
+		
+		``$\forall n,P(n)$'' is logically equivalent to ``$\sim \exists n, \sim P(n)$''\pause
+		
+		Therefore, $\forall n,P(n)$ is true.
+	\end{proof}
+	
+	\pause
+	
+	The above argument works for any propositions as long as it satisfy our assumption. \pause
+	
+	Usually, after we checked the assumption holds, we can use this theorem to conclude. \pause
+	
+	By ``using a theorem'', we actually means that we re-apply the arguments of a proof again.
+\end{slide}
+\section{Induction example}
+\begin{slide}{Sum of power one}
+	Let $P(n)::=\mbox{''} 1+2+\cdots+n \mbox{ is always equal to } \frac{1}{2}n(n+1)\mbox{"}$. \pause 
+	
+	we shall show that ``$\forall n,P(n)$'' by using the mathematical induction. \pause
+	
+	\begin{proof}
+	
+	Firstly, we check that $P(1)$ is true, which is obvious in this case. \pause
+	
+	Secondly, for each given $k$, \pause
+	
+	we want to show that the proposition $P(k)\implies P(k+1)$ is also true. \pause
+
+	To prove a conditional proposition always holds, \pause
+	
+	we need to check all the possible truth value associated between the two statements. \pause
+	
+	If $P(k)$ is false, then the whole conditional statement is true. \pause
+	
+	Remaining is to verify the case for $P(k)$ is true to show $P(k+1)$ is true. \pause
+	
+	i.e. $1+2+\cdots +k=\frac{1}{2}k(k+1)$  is true.
+	
+	Now, consider $1+2+\cdots +k + (k+1) = (1+2+\cdots +k) + k+1$. \pause
+	
+	Our assumption says that $(1+2+\cdots +k) + k+1=  \frac{1}{2}k(k+1) + (k+1)$ \pause 
+	
+	$\frac{1}{2}k(k+1) + (k+1) = \frac{1}{2}(k+1)((k+1)+2)$ \pause	
+	
+	Hence, $1+2+\cdots +k + (k+1) = \frac{1}{2}(k+1)((k+1)+2)$ , i.e. $P(k+1)$ is true. \pause
+
+	By induction, we know that $\forall k,P(k)$ is true.
+	
+	\end{proof}
+	
+	\pause
+	
+	Try to show the above proposition using a direct proof.
+\end{slide}
+
+\begin{slide}{Sum of power two}
+	Let $P(n)::=\mbox{''} 1^2+2^2+\cdots+n^2 \mbox{ is always equal to } \frac{1}{6}n(n+1)(2n+1)\mbox{"}$. \pause 
+	
+	\begin{proof}
+		
+		Firstly, we check that $P(1)$ is true, which is obvious in this case. \pause
+		
+		Secondly, for each given $k$, \pause
+		
+		assume $P(k)$ is true, i.e. $1^2+2^2+\cdots +k^2=\frac{1}{6}k(k+1)(2k+1)$. \pause
+		
+		Now, consider $1^2+2^2+\cdots +k^2 + (k+1)^2 = (1^2+2^2+\cdots +k^2) + (k+1)^2$. \pause
+		
+		Hence, $1^2+2^2+\cdots +k^2 + (k+1)^2 = \frac{1}{6}(k)(k+1)(2k+1) + (k+1)^2$ \pause
+		
+		$\frac{1}{6}(k)(k+1)(2k+1) + (k+1)^2 = \frac{1}{6}(k+1)(k(2k+1) + 6(k+1))$ \pause
+		
+		$k(2k+1) + 6(k+1) = 2k^2 + 7k + 6 = (2k+3)(k+2)$ \pause 
+		
+		Hence, $\frac{1}{6}(k+1)(k(2k+1) + 6(k+1))=\frac{1}{6}(k+1)(k+2)(2k+3)$.\pause
+		
+		$\frac{1}{6}(k+1)(k+2)(2k+3) = \frac{1}{6}(k+1)((k+1)+1)(2(k+1)+1)$ \pause
+		
+		Hence, $P(k+1)$ is true. \pause
+		
+		By induction, $\forall k,P(k)$ is true. \pause
+		
+	\end{proof}
+	
+	How can one come up with the expression at the right hand side?
+
+\end{slide}
+
+\begin{slide}{Summation notation}
+	Let $f(i)$ be a function of $i$, e.g. $\sin$ , $i^2$. \pause
+	
+	and $n,m$ be two integers with $n<m$. \pause
+	
+	\medskip
+	
+	The summation notation $\sum\limits_{i=n}^{m} f(i)$ is defined as $f(n)+f(n+1)+\cdots +f(m)$. \footnote{This is just a notation to simplify our mathematical expression.}\pause
+	
+	\medskip
+	
+	Literally, it means keep adding from $i=n$ up to $i=m$. \pause
+	
+	\medskip
+	
+	For example, 
+	
+	\begin{itemize}
+		\item $\sum\limits_{i=1}^{m} i$ is the same as $1 + 2 + \cdots + m$. \pause
+		
+		\item $\sum\limits_{i=3}^{m} i^2$ is the same as $3^2 + 4^2 + \cdots + m^2$. \pause
+	\end{itemize}
+	
+	The previous two identities can be written as 
+
+	\begin{itemize}
+		\item $\sum\limits_{i=1}^{m} i=\frac{1}{2}m(m+1)$. \pause
+		
+		\item $\sum\limits_{i=1}^{m} i^2=\frac{1}{6}m(m+1)(2m+1)$. \pause
 	\end{itemize}
 \end{slide}
 
-\begin{slide}{Computer Integers and Real numbers}
-	Although we won't distinguish usually between $2.5$ and $3$, there are just number. \pause
+\begin{slide}{Properties of summation}
+	Let $f,g$ be functions, $n,m$ be integers with $n<m$ and $c$ be a constant.
 	
-	Computer would like to do so. \pause
+	\begin{thm*} The following are true:
+		\begin{enumerate}
+			\item If $n\leq k<m$, then $\sum\limits_{i=n}^{m} f(i) = \sum\limits_{i=n}^{k} f(i) + \sum\limits_{i=k+1}^{m} f(i)$. \pause
+			\item $\sum\limits_{i=1}^{n} c = nc$ (adding total $n$'s $c$ is $nc$.) \pause
+			\item $\sum\limits_{i=n}^{m} c = (m-n+1)c$\pause
+			\item $\sum\limits_{i=n}^{m} c\cdot f(i) = c\cdot \sum\limits_{i=n}^{m} f(i)$\pause
+			\item $\sum\limits_{i=n}^{m} \left[f(i)+g(i)\right] = \left(\sum\limits_{i=n}^{m} f(i)\right)+\left(\sum\limits_{i=n}^{m}g(i)\right)$\pause						
+		\end{enumerate}
+	\end{thm*}
+	The first: ``adding from $n$ to $m$ is the same as adding from $n$ to $k$ then from $k+1$ to $m$''.\pause
 	
-	It only knows whole number. \pause
-	
-	\medskip{}
-	
-	Computer integer is of the form (\textbackslash{}+|\textbackslash{}-)?[0-9]+ \pause
-	
-	Therefore, it will treat $3/2$ to be $1$. \pause
-	
-	\medskip{}
-	
-	For simplicity, we denote [DIGIT] to be [0-9] and [INT] to be [DIGIT]+ \pause
-	
-	Computer treats other numbers to be computer-real number, it can be ``-2.3'' , ``2.0'', ``1E+12''\footnote{Scientific notation $1\times{}10^{12}$.}. \pause
-	
-	Let [SIGN] $::=$ (\textbackslash{}+|\textbackslash{}-), \pause
-	
-	Computer real number is of the form [SIGN]?[DIGIT]*''.''[DIGIT]+((e|E)[SIGN]?[INT])  or [SIGN]?[DIGIT]+(e|E)[SIGN]?[INT]. \pause
-	
-	\medskip{}	
-	
-	Therefore, it will treat $3/2.0$ to be $1.5$ , $3.0/2$ to be $1.5$ and $3.0/2.0$ to be $1.5$. \pause
+	The forth: $\left(cf(n)+cf(n+1)+\cdots +cf(m)\right) = c\left(f(n)+f(n+1)+\cdots +f(m)\right)$\pause
 \end{slide}
+\begin{slide}[toc=]{Properties of summation}
+	The fifth: $\left(f(n)+g(n)\right) + \left(f(n+1)+g(n+1)\right) +\cdots \left(f(m)+g(m)\right) = \left(f(n)+f(n+1)+\cdots+f(m)\right) + \left(g(n)+g(n+1)+\cdots +g(m)\right)$\pause
+	
+	\medskip
+	
+	i.e. we can rearrange the terms as long as there are finitely many.\pause
+	
+	\begin{proof}
+		Let $P(n)$ be the proposition that ``$\sum\limits_{i=1}^{n} c = nc$''. \pause
+		
+		$P(1)$ is true, as adding from $m$ to $m$ means added once only.\pause
+		
+		Assume $\sum\limits_{i=1}^{k} c = kc$, then $\sum\limits_{i=1}^{k+1} c = \sum\limits_{i=1}^{k} c + \sum\limits_{i=k+1}^{k+1} c = kc + c = (k+1)c$\pause
+		
+		\medskip
+		
+		Hence, $P(n)$ is true for all $n$.\pause
+		
+		\medskip
+		
+		To prove that $\sum\limits_{i=n}^{m} c = (m-n+1)c$, we used the fact $P(m)$ and $P(n-1)$ is true. \pause
+		
+		From the first one, we have $\sum\limits_{i=1}^{m} c = \sum\limits_{i=1}^{n-1} c + \sum\limits_{i=n}^{m} c$. \pause
+		
+		Hence, $mc = (n-1)c + \sum\limits_{i=n}^{m} c\iff \sum\limits_{i=n}^{m} c = (m-n+1)c$. \pause
+	\end{proof}
+	
+	To proof the next identity, one can similarly do an induction on $\sum\limits_{i=1}^{m} c\cdot f(i)$. \pause
+	
+	On the next slide, we shall prove the final one.
+	
+\end{slide}
+\begin{slide}[toc=]{Properties of summation}
+	\begin{proof}
+		Let $P(n)$ be the proposition that 
+		
+		``$\sum\limits_{i=1}^{n} \left[f(i)+g(i)\right] = \left(\sum\limits_{i=1}^{n} f(i)\right)+\left(\sum\limits_{i=1}^{n}g(i)\right)$''. \pause
+		
+		\medskip
+		
+		$P(1)$ is true, as LHS is $\left[f(1)+g(1)\right]$ and the right is $\left(f(1)\right)+\left(g(1)\right)$.\pause
+		
+		Assume $P(k)$ is true, then 
+		
+		$\sum\limits_{i=1}^{k+1} \left[f(i)+g(i)\right] = \sum\limits_{i=1}^{k} \left[f(i)+g(i)\right] + \left[f(k+1)+g(k+1)\right]$\pause
+		
+		\medskip
+		
+		$\sum\limits_{i=1}^{k+1} \left[f(i)+g(i)\right] = \left(\sum\limits_{i=1}^{k} f(i)\right)+\left(\sum\limits_{i=1}^{k}g(i)\right) + \left[f(k+1)+g(k+1)\right]$\pause
+		
+		\medskip
+		
+		$\sum\limits_{i=1}^{k+1} \left[f(i)+g(i)\right] = \left(\sum\limits_{i=1}^{k} f(i)+ f(k+1)\right) + \left(\sum\limits_{i=1}^{k}g(i) + g(k+1)\right)$\pause
+		
+		\medskip
+		
+		$\sum\limits_{i=1}^{k+1} \left[f(i)+g(i)\right] = \left(\sum\limits_{i=1}^{k+1} f(i)\right) + \left(\sum\limits_{i=1}^{k+1}g(i)\right)$\pause
+		
+		\medskip
+		
+		Hence, $P(n)$ is true for all $n$.\pause
+		
+		Finally, the part from $n$ to $m$ can be completed by consider $1$ to $n-1$ and $1$ to $m$. \pause
+		
+		Note that, the rearrangement always holds if we have $f(i)+g(i)+h(i)$  and more functions.
+	\end{proof}
+\end{slide}
+\begin{slide}[toc=Direct proof]{The direct proof for power sum of two}
+	Let $f(n) = (n+1)^3 - n^3 = 3n^2 + 3n + 1$ and consider $\sum\limits_{i=1}^{n} f(i)$. \pause
+
+	Viewing $f(n)$ as the difference of two numbers, we have \pause
+	
+	$\sum\limits_{i=1}^{n} \left((i+1)^3 - i^3\right) = \sum\limits_{i=1}^{n} (i+1)^3 - \sum\limits_{i=1}^{n} i^3$ \pause
+	
+	It is equal to $\sum\limits_{i=2}^{n+1} i^3 - \sum\limits_{i=1}^{n} i^3 = (n+1)^3 - 1$\pause
+	
+	On the other hand, $\sum\limits_{i=1}^{n}\left(3i^2 + 3i + 1\right)=\sum\limits_{i=1}^{n}(3i^2) + \sum\limits_{i=1}^{n}(3i) + \sum\limits_{i=1}^{n}(1)$\pause
+	
+	Therefore, $(n+1)^3 - 1 = \sum\limits_{i=1}^{n}(3i^2) + \sum\limits_{i=1}^{n}(3i) + \sum\limits_{i=1}^{n}(1)$\pause
+	
+	Rearrange the terms, we have $\sum\limits_{i=1}^{n}(3i^2) = (n+1)^3 - 1 - \sum\limits_{i=1}^{n}(3i) - \sum\limits_{i=1}^{n}(1)  $.\pause
+	
+	Hence, $3\sum\limits_{i=1}^{n}i^2 = (n+1)^3  - 3\sum\limits_{i=1}^{n}(i) - (n+1)$.\pause
+	
+	Using the identity for $1+2+\cdots +n=\frac{1}{2}n(n+1)$, we have\pause
+	
+	$3\sum\limits_{i=1}^{n}i^2 =  (n+1)^3 - \frac{3}{2}n(n+1) - (n+1)$.\pause
+	
+	factorize gives,$\frac{1}{2}(n+1)\left(2n^2 + 4n +2 - 3n -2 \right)=\frac{1}{2}(n+1)(n(2n+1))$ \pause
+	
+	Divide both side by $3$, we have $\sum\limits_{i=1}^{n}i^2 =\frac{1}{6}n(n+1)(2n+1)$.
+\end{slide}
+\begin{slide}[toc=Sum of G.S.]{Sum of geometric sequence}
+	$\sum\limits_{i=0}^{n}x^i=\frac{x^{n+1}-1}{x-1}$ ,i.e. $1+x+x^2+\cdots+x^n =\frac{x^{n+1}-1}{x-1}$ \pause
+	\begin{proof}
+		Similarly, we let $P(n)$ be the above proposition. \pause
+		
+		Clearly, $P(0)$ and $P(1)$ are true.\pause
+		
+		For the induction step, assume $P(k)$ is true,\pause
+		
+		then $\sum\limits_{i=0}^{k+1}x^i = \frac{x^{k+1}-1}{x-1} + x^{k+1} = \frac{x^{k+2}-1}{x-1}$\pause
+		
+		Hence, by MI, the above $P(n)$ is true for all $n$.
+	\end{proof}
+	
+	\pause
+	
+	Alternatively,\pause
+	\begin{proof}
+		$x\sum\limits_{i=0}^{n}x^i - \sum\limits_{i=0}^{n}x^i = (x-1) \sum\limits_{i=0}^{n}x^i$ \pause
+		
+		On the other hand, $x\sum\limits_{i=0}^{n}x^i = \sum\limits_{i=0}^{n}x^{i+1} = \sum\limits_{i=1}^{n+1}x^i$.\pause
+		
+		Hence, $x\sum\limits_{i=0}^{n}x^i - \sum\limits_{i=0}^{n}x^i = x^{n+1} - 1$.\pause
+		
+		Therefore, $x^{n+1} - 1 = (x-1) \sum\limits_{i=0}^{n}x^i$.
+	\end{proof}	
+	
+	\pause
+	
+	Find $1+\frac{1}{2}+\frac{1}{4}+\cdots +\frac{1}{32768}$ using the above identity.
+\end{slide}
+\section{Variation of induction}
+\begin{slide}{Second induction}
+	The base case becomes ``$P(1)$ and $P(2)$''.
+	
+	The induction step becomes $P(k)\mbox{ and }P(k+1)\implies P(k+2)$.\pause
+	
+	Define $F_0=0,F_1=1$ and $F_n=F_{n-1}+F_{n-2} \mbox{ for }n>1$.\pause
+	
+	Let $r_1=\frac{1+\sqrt{5}}{2},r_2=\frac{1-\sqrt{5}}{2}$ , prove that $F_n = \frac{r_1^n+r_2^n}{\sqrt{5}}$.
+	
+	\begin{proof}
+		Use the second induction, \pause
+		
+		we let the proposition $P(n)$ to be $F_{n-1} = \frac{r_1^{n-1}+r_2^{n-1}}{\sqrt{5}}$.\pause
+		
+		Prove that $r_1+r_2=1$ and show the induction step.\pause
+		
+		Left as exercise.
+	\end{proof}
+\end{slide}
+\begin{slide}[toc=Backward induction]{Backward induction proof of the AGM-inequality}
+	\begin{thm*} Let $a_1,a_2,\dots ,a_n$ be $n$ non-negative numbers.
+		Then $$\frac{a_1+a_2+\cdots +a_n}{n}\geq \sqrt[n]{a_1\cdot a_2\cdots \cdot a_n }$$
+	\end{thm*}
+	\begin{proof}
+		We proved that $P(2)$ is true and want to show that $P(2^n)$ is true.\pause
+		
+		Using the induction for $P(2^k)\implies P(2^{k+1})$, we have $\forall n, P(2^n)$.\pause
+		
+		Finally, we showed that $\forall k,P(k)\implies P(k-1)$. \pause
+		
+		We starts from $2\implies 4\implies 8\implies 16\implies \dots $  \pause
+		
+		then $4\implies 3 ,8\implies 7\implies 6\implies 5 , \dots $ \pause
+		
+		The detail are left as exercise.
+	\end{proof}
+	
+	\pause
+	
+	Be familiar with the mathematical induction, we will use it quite often.
+\end{slide}
+\section{Control flows and algorithm}
+\begin{slide}{Summation in computer}
+	We introduce the summation notation for summing up terms. \pause
+	
+	However, there is no such direct concept for computer. \pause
+	
+	We should use the basic things that a computer can do to simulate the summation \pause
+
+	Remember that a computer can do looping. \pause
+	
+	A \textbf{control flow} is a statement which tells the computer what it should perform. \pause
+	
+	We shall express these ideas in pseudo-code. \pause
+	
+	An \textbf{algorithm} is a sequence of operations to tell the computer how to solve a problem. \pause
+\end{slide}
+\begin{slide}[toc=Pseudo-code]{Pseudo-code - Assignment}
+	Pseudo-code is a hand-written notation to specify how should a computer to perform a task. \pause
+	
+	The code is merely for human being. \pause
+	
+	It represents what the computer can do. \pause
+	
+	In pseudo-code, we denote ``$x\gets 1$'' to represent storing $1$ to $x$. \pause
+	
+	This is called an \textbf{assignment}. \pause
+	
+	In general, the grammar structure for an assignment expression is 
+	
+	<$Assignment$>$::=$<$Name$> $\gets$ <$Value$>\pause
+\end{slide}
+\begin{slide}[toc=]{IF-THEN / IF-THEN-ELSE}
+	IF-THEN and IF-THEN-ELSE are control flow which have two and three parts respectively.\pause
+	
+	They tells the computer to perform task based on a given condition. \pause
+	
+	\begin{enumerate}
+		\item	The condition for checking.\pause
+		\item	The actions to be performed once the condition holds.\pause
+		\item 	The actions to be performed once the conditions is false. (Only for IF-THEN-ELSE) \pause
+	\end{enumerate}		
+	
+	The only difference between them is that, \pause
+	
+	when the condition does not holds, the IF-THEN-ELSE tells the computer to do some task. \pause
+	
+	This is called a \textbf{conditional flow}. \pause
+
+	Usually, we denote it by ``\textbf{if} \textit{condition} \textbf{then} \textit{action list}''. \pause
+	
+	or ``\textbf{if} \textit{condition} \textbf{then} \textit{action list} \textbf{else} \textit{action list}''. \pause
+	
+	In general, the grammar structure for a conditional flow is \pause
+	
+	<\textit{IF-THEN}>$::=$\textbf{if} <\textit{Condition}> \textbf{then} <\textit{Actions-for-true}> \pause
+	
+	<\textit{IF-THEN-ELSE}>$::=$\textbf{if} <\textit{Condition}> \textbf{then} <\textit{Actions-for-true}> \textbf{else} <\textit{Actions-for-false}> \pause	
+\end{slide}
+\begin{slide}[toc=]{Example - Condition flow}
+	You are given a positive integer $x$, we want to find the next even number.\pause
+	
+	How can we tell the computer to find the next even number?\pause
+	
+	The following is an algorithm. \pause
+
+	\medskip
+	
+	\begin{algorithm}[H]
+		\SetAlgoLined
+		\KwData{$x$ is a positive integer.}
+		\KwResult{The even number just after $x$.}		
+		\eIf{$x$ is odd}{
+			\Return{$x+1$}
+		}{
+			\Return{$x+2$}
+		}
+	\end{algorithm}
+	
+	\pause
+	
+	How can we check if $x$ is odd?\pause
+	
+	\medskip
+	
+	\begin{algorithm}[H]
+		\SetAlgoLined
+		\KwData{$x$ is a positive integer.}
+		\KwResult{The even number just after $x$.}		
+		\eIf{$x\bmod 2\neq 0$}{
+			\Return{$x+1$}
+		}{
+			\Return{$x+2$}
+		}
+	\end{algorithm}
+\end{slide}
+\begin{slide}[toc=]{Looping - Iterative}
+	In the summation notation, we start from $i=n$ and then count one by one until $i=m$. \pause
+	
+	A similar control flow called the FOR-LOOP also exists in computer.\pause
+	
+	It consists of three parts, \pause
+	
+	\begin{enumerate}
+		\item	The starting/initial value $n$ \pause
+		\item	The ending value $m$ \pause		
+		\item	Actions to be performed. \pause		
+	\end{enumerate}
+	
+	It is usually called a \textbf{for-loop} or an \textbf{iterative loop}.\pause
+	
+	The grammar is <FOR-LOOP>$::=$\textbf{for} <name> $\gets$ <value> \textbf{to} <value> \textbf{do} <Actions>.\pause
+	
+	Therefore, the summation notation $\sum\limits_{i=1}^{10}i^2$ can be simulated as,\pause
+	
+	\medskip
+
+	\begin{algorithm}[H]
+		\SetAlgoLined
+		$t\gets 0$ \;
+		\For{$i\gets 1$ \KwTo $10$}{
+			$t\gets t+i^2$
+		}
+		\Return{$t$}
+	\end{algorithm}
+\end{slide}
+
+\begin{slide}[toc=]{Looping - Conditional}
+	Usually, we would like to repeat a task whenever the condition holds.\pause
+	
+	For example, in checking password, 
+	
+	the computer keeps asking for a password until a correct one is entered.\pause
+	
+	A similar control flow called the WHILE-LOOP also exists in computer.\pause
+	
+	It consists of two parts, \pause
+	
+	\begin{enumerate}
+		\item	The condition $n$ \pause
+		\item	Actions to be performed. \pause		
+	\end{enumerate}
+	
+	It is usually called a \textbf{while-loop} or a \textbf{conditional loop}.\pause
+	
+	The grammar is <WHILE-LOOP>$::=$\textbf{while} <condition> \textbf{do} <Actions>.\pause
+	
+	Therefore, a password checking algorithm is as follow,\pause
+	
+	\medskip
+	
+	\begin{algorithm}[H]
+		\SetAlgoLined
+		\KwIn{Password}
+		\While{Password is wrong}{
+			\KwOut{You enter a wrong password.}
+			\KwIn{Password.}
+		}
+		\KwOut{Login successfully.}
+	\end{algorithm}
+\end{slide}
+\section{C's Syntax}
+\begin{slide}{Character and String}
+	Previous lecture, we know that a computer can recognize value.\pause
+	
+	A computer integer is of the form [SIGN]?[0-9]+.\pause
+	
+	A computer real number is given similarly.\pause
+	
+	These two are called \textbf{numerical values}.\pause
+	
+	Another type of values the computer can recognize is ``English''. \pause
+	
+	It can be divided into two types. \pause
+	
+	A ``letter'' or a ``vocabulary''. \pause
+	
+	The computer-letter is called a \textbf{character}.\pause
+	
+	The computer-vocabulary is called a \textbf{string}.\pause
+	
+	Unlike English, we do not impose restriction on whatever we called a string.\pause
+	
+	There is no spell checking.\pause
+	
+	A character in C is enclosed by two single quotation mark. \pause
+	
+	For example, 'a' , 'b' , ' '. \pause
+	
+	A string in C is enclosed by two double quotation mark.\pause
+	
+	For example, "abc" , "hot". \pause
+	
+	As similar to the regular expression, whenever a character has special meaning, use a \textbackslash.\pause
+	
+	Therefore, to denote a character single quote, we should use '\textbackslash''.\pause
+	
+	And similar, a string with a double quote, we should use "asd\textbackslash"".\pause
+	
+\end{slide}
+
 \section{End}
 \end{document}
