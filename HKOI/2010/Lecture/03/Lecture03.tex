@@ -24,6 +24,7 @@
 	\newtheorem*{thm*}{Theorem}
 	\newtheorem*{def*}{Definition}
 	\newtheorem*{axiom*}{Axiom}
+	\newtheorem*{remark*}{Remark}	
 \makeatother
 
 \usepackage{babel}
@@ -787,11 +788,11 @@
 	
 	There is no spell checking.\pause
 	
-	A character in C is enclosed by two single quotation mark. \pause
+	A character in C's syntax is enclosed by two single quotation mark. \pause
 	
 	For example, 'a' , 'b' , ' '. \pause
 	
-	A string in C is enclosed by two double quotation mark.\pause
+	A string is enclosed by two double quotation mark.\pause
 	
 	For example, "abc" , "hot". \pause
 	
@@ -800,7 +801,147 @@
 	Therefore, to denote a character single quote, we should use '\textbackslash''.\pause
 	
 	And similar, a string with a double quote, we should use "asd\textbackslash"".\pause
+\end{slide}
+\begin{slide}{Boolean expression}
+	A computer also knows logic and propositions. \pause
 	
+	Given a proposition, \pause
+	
+	it create new propositions through the three logical operators (NOT, AND, OR). \pause
+
+	In C's syntax, the three are expressed as follow:\pause
+	
+	\begin{itemize}
+		\item[{!}] The logical NOT operator.
+		\item[{\&\&}] The logical AND operator.
+		\item[{||}] The logical OR operator.
+	\end{itemize}
+	
+	\pause
+	
+	Since ``$P\implies Q$''  is equivalent to ``$\sim{}P\mbox{ or }Q$''. \pause	
+	
+	Using the above three operators, it is enough to construct the IF-THEN and IFF propositions. \pause
+	
+	The remaining is to express comparisons in C's syntax. \pause
+	
+	For example, $n\geq 2$ , $n>2$ , $n=2$, \pause
+	
+	\begin{remark*}
+		Be careful, it is necessary to write two symbols for the logical AND , OR operators.
+	\end{remark*}
+	
+\end{slide}
+\begin{slide}{Comparison expression}
+	A computer can do comparison about numbers only. \pause
+	
+	It knows the following mathematical relations: \pause
+	
+	\begin{itemize}
+		\item[{$>$}] Greater than.
+		\item[{$>=$}] Greater than or equal to.
+		\item[{$<$}] Less than.
+		\item[{$<=$}] Less than or equal to.		
+		\item[{$!=$}] Not equal to.				
+		\item[{$==$}] Equal to.						
+	\end{itemize}
+	
+	\pause
+	
+	For example, the statement ``$n$ is greater than $4$ and less than $10$'' can be expressed as\pause
+	
+	$n>=4 \&\& n<10$. \pause
+	
+	\begin{remark*}
+		Be careful, it is necessary to write two symbols for the ``Equal to'' comparison.
+	\end{remark*}
+\end{slide}
+\begin{slide}[toc=truth value in computer]{Representation of truth value in computer}
+	As mentioned, computer can only represent two essentially different types.\pause
+	\begin{enumerate}
+		\item Numbers: \pause  Computer-integers and Computer-real-numbers.\pause
+		\item Text:	\pause	Strings\footnote{In a computer, a character is actually represented as an integer}.
+	\end{enumerate}
+	
+	\pause
+	
+	Therefore, there is no any other types in the computers. \pause
+	
+	The truth value, false and true, are represented using either one of the above type. \pause
+	
+	Indeed, the computer use numbers to represent truth value. \pause
+	
+	It chooses $0$ to represent false and any other non-zero numbers are true, usually $1$. \pause
+	
+\end{slide}
+\begin{slide}{Bitwise operation}
+	We mentioned that a logical AND , OR are represented using \&\&  and  ||.\pause
+	
+	What happens if we use a single \& and | instead? \pause
+	
+	What is the meaning of 3\textasciicircum{}5 in C language? \pause
+	
+	The above three operators are called \textbf{bitwise operators} \pause
+	
+	The bitwise one acts like the logical one, except it operates on every binary digits. \pause
+	
+	For example,  10 bitwise-or 6 is performed as follow: \pause
+	
+	\begin{enumerate}
+		\item The binary representation of $10$ is $1010_{\left(ii\right)}$ \pause
+		\item The binary representation of $6$ is $0110_{\left(ii\right)}$ \pause
+		\item Do the Logical OR operation on digit by digit.\pause
+		\item Therefore, the result is $1110_{\left(ii\right)} = 14$\pause
+	\end{enumerate}
+	
+	Similarly for the bitwise-and operation. \pause
+	
+	Hence, in C's syntax,  the result of $10 \&\& 6$ is $0010_{\left(ii\right)} = 2$. \pause
+	
+	\begin{remark*}
+		There is bitwise NOT operation.\pause
+		
+		However, due to its complexity, we will postpone its discussion. \pause
+	\end{remark*}
+		
+	
+\end{slide}
+\begin{slide}[toc=XOR]{Exclusive OR}
+	The \textasciicircum{} symbol is called the exclusive or, usually denote by (XOR), \pause
+	
+	which means ``only one of them is true, but not both''. \pause
+	
+	The truth table for XOR is \pause
+	
+	\medskip
+	
+	\begin{tabular}{|c|c|c|}
+		\hline $P$ &  $Q$ & $P$ XOR $Q$ \\ 
+		\hline true & true & false \\ 
+		\hline true & false & true \\ 
+		\hline false & true & true \\ 		
+		\hline false & false & false \\ 				
+		\hline 
+	\end{tabular} 
+	
+	\medskip
+	
+	\pause
+	
+	In other words, it is more or less the same as ``logically not equal to''.\pause
+	
+	The computation of the result is similar to the other two bitwise operations.\pause
+	
+	Therefore, the expression $3\mbox{\textasciicircum}5$ in C's syntax is computed as follow: \pause 
+	
+	\begin{enumerate}
+		\item The binary representation of $3$ is $011_{\left(ii\right)}$ \pause
+		\item The binary representation of $5$ is $101_{\left(ii\right)}$ \pause
+		\item Do the XOR operation on digit by digit.\pause
+		\item Therefore, the result is $110_{\left(ii\right)} = 6$\pause
+	\end{enumerate}
+	
+
 \end{slide}
 
 \section{End}
