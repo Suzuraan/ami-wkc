@@ -97,7 +97,7 @@ input{pic/q1_1.tex}
 
 \begin_layout Problem
 Show that 
-\begin_inset Formula $\triangle ACD\sim\triangle CDB$
+\begin_inset Formula $\triangle ACD\sim\triangle CBD$
 \end_inset
 
  and 
@@ -141,7 +141,7 @@ Hence
 \end_layout
 
 \begin_layout Proof
-\begin_inset Formula $\dfrac{CD}{DB}=\dfrac{AC}{CD}\iff CD^{2}=AC\cdot DB\iff h^{2}=ab\iff h=\sqrt{ab}$
+\begin_inset Formula $\dfrac{CD}{DB}=\dfrac{AD}{CD}\iff CD^{2}=AD\cdot DB\iff h^{2}=ab\iff h=\sqrt{ab}$
 \end_inset
 
 
@@ -844,7 +844,7 @@ Also,
 \end_layout
 
 \begin_layout Proof
-Using the pythagoras theorem, 
+Using the Pythagoras theorem, 
 \begin_inset Formula $DG^{2}=OD^{2}+OG^{2}=\frac{a^{2}+b^{2}}{2}$
 \end_inset
 

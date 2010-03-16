@@ -59,7 +59,7 @@ Week 1 Exercise
 \end_layout
 
 \begin_layout Section
-Another proof of pythagoras theorem and Pythagorean mean
+Another proof of pythagoras theorem and Pythagorean means
 \end_layout
 
 \begin_layout Problem
@@ -92,7 +92,7 @@ input{pic/q1.tex}
 
 \begin_layout Problem
 Show that 
-\begin_inset Formula $\triangle ACD\sim\triangle CDB$
+\begin_inset Formula $\triangle ACD\sim\triangle CBD$
 \end_inset
 
  and 
@@ -144,7 +144,7 @@ geometric mean (GM)
 
  is called the 
 \emph on
-arithemetic mean (AM)
+arithmetic mean (AM)
 \emph default
  of 
 \begin_inset Formula $a$
@@ -580,7 +580,7 @@ C's Syntax
 
 \begin_layout Standard
 \paragraph_spacing double
-Rewrite the following mathematical expression in C's expression.
+Rewrite the following mathematical expressions in C's expressions.
 \end_layout
 
 \begin_layout Standard
@@ -596,7 +596,7 @@ You can assume that
 \begin_inset Formula $\sqrt{x}$
 \end_inset
 
- is written in 
+ is written as 
 \begin_inset Formula $sqrt\left(x\right)$
 \end_inset
 
